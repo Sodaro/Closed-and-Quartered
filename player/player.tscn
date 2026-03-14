@@ -3,11 +3,14 @@
 [ext_resource type="Script" uid="uid://c5yo7rpobc5i6" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cl682mleaktpa" path="res://assets/art/player.png" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="5_qjkh3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=471040967]
+collision_mask = 3
 script = ExtResource("1_g1dw6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1271516138]
@@ -22,3 +25,11 @@ position = Vector2(32, 0)
 
 [node name="RightAttach" type="Node2D" parent="." unique_id=1102850586]
 position = Vector2(0, 32)
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=2023874258]
+script = ExtResource("4_yw30f")
+metadata/_custom_type_script = "uid://tbehxd25cavq"
+
+[node name="HitResponseComponent" type="Node2D" parent="." unique_id=309131491]
+script = ExtResource("5_qjkh3")
+metadata/_custom_type_script = "uid://cn2oay8wwk0pa"

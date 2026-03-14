@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dyo4n2ioqhgye"]
+
+[ext_resource type="Script" uid="uid://cgt1rvxolceij" path="res://enemies/sentry.gd" id="1_teusu"]
+[ext_resource type="PackedScene" uid="uid://lu20df8gxi6p" path="res://weapons/handgun/handgun.tscn" id="2_ad48b"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="3_8roh4"]
+[ext_resource type="Texture2D" uid="uid://ble2mh3nj6vld" path="res://assets/art/sentry.png" id="4_w11wr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8uqv"]
+radius = 16.0
+
+[node name="HandgunSentry" type="CharacterBody2D" unique_id=883219979 node_paths=PackedStringArray("weapon")]
+collision_mask = 3
+script = ExtResource("1_teusu")
+weapon = NodePath("Handgun")
+
+[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("2_ad48b")]
+position = Vector2(27, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1646357619]
+shape = SubResource("CircleShape2D_a8uqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=124966511]
+material = ExtResource("3_8roh4")
+texture = ExtResource("4_w11wr")

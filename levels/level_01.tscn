@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://dw1yli4dogk5j" path="res://level.gd" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://bevms62jtinl" path="res://player/player.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://c38or1gus36ru" path="res://level_actors/solid_wall.tscn" id="3_81a5f"]
-[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun.tscn" id="4_gg43x"]
 [ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="5_mllcm"]
+[ext_resource type="PackedScene" uid="uid://lu20df8gxi6p" path="res://weapons/handgun/handgun.tscn" id="6_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_q7ibo"]
+[ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="7_j0sdw"]
+[ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="8_j0sdw"]
 
 [node name="Level01" type="Node2D" unique_id=460206190 node_paths=PackedStringArray("level_exit", "player")]
 script = ExtResource("1_3hls8")
@@ -57,9 +59,7 @@ scale = Vector2(15.040003, 1)
 position = Vector2(560.99994, -200.99998)
 rotation = 0.010505935
 scale = Vector2(9.887428, 1)
-
-[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("4_gg43x")]
-position = Vector2(296, 140)
+collision_layer = 2
 
 [node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("5_mllcm")]
 position = Vector2(-103, -467.00006)
@@ -67,3 +67,21 @@ scale = Vector2(17.235336, 25.18038)
 
 [node name="LevelCollectible" parent="." unique_id=1999132453 instance=ExtResource("6_q7ibo")]
 position = Vector2(298, -673)
+
+[node name="Handgun" parent="." unique_id=38970184 instance=ExtResource("6_cg8v6")]
+position = Vector2(211, 13)
+
+[node name="Shotgun" parent="." unique_id=2123585715 instance=ExtResource("7_j0sdw")]
+position = Vector2(325, 15)
+
+[node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("8_j0sdw")]
+position = Vector2(210, -222)
+
+[node name="GlassWindow2" parent="." unique_id=1043758545 instance=ExtResource("8_j0sdw")]
+position = Vector2(274, -222)
+
+[node name="GlassWindow3" parent="." unique_id=1470640836 instance=ExtResource("8_j0sdw")]
+position = Vector2(339, -222)
+
+[node name="GlassWindow4" parent="." unique_id=456130580 instance=ExtResource("8_j0sdw")]
+position = Vector2(402, -222)

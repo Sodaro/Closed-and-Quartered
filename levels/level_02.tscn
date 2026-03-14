@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dw1yli4dogk5j" path="res://level.gd" id="1_nnn84"]
 [ext_resource type="PackedScene" uid="uid://bevms62jtinl" path="res://player/player.tscn" id="2_g685p"]
 [ext_resource type="PackedScene" uid="uid://c38or1gus36ru" path="res://level_actors/solid_wall.tscn" id="3_8yqd8"]
-[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun.tscn" id="4_h518d"]
+[ext_resource type="PackedScene" uid="uid://lu20df8gxi6p" path="res://weapons/handgun/handgun.tscn" id="4_h518d"]
 [ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="5_didps"]
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_gia0r"]
+[ext_resource type="PackedScene" uid="uid://dyo4n2ioqhgye" path="res://enemies/handgun_sentry.tscn" id="7_mihb8"]
 
 [node name="Level02" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "player")]
 script = ExtResource("1_nnn84")
@@ -58,9 +59,6 @@ position = Vector2(1321.0001, 520)
 rotation = -0.22453892
 scale = Vector2(15.040003, 1)
 
-[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("4_h518d")]
-position = Vector2(533, 274)
-
 [node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("5_didps")]
 position = Vector2(981, 387)
 rotation = -0.049438536
@@ -68,3 +66,10 @@ scale = Vector2(4.1727414, 19.6096)
 
 [node name="LevelCollectible" parent="." unique_id=1999132453 instance=ExtResource("6_gia0r")]
 position = Vector2(1350, 452)
+
+[node name="Sentry" parent="." unique_id=883219979 instance=ExtResource("7_mihb8")]
+position = Vector2(1163, 406)
+rotation = -3.1304708
+
+[node name="Handgun" parent="." unique_id=38970184 instance=ExtResource("4_h518d")]
+position = Vector2(539, 259)

@@ -1,7 +1,7 @@
 extends Area2D
 class_name PickupComponent
 
-var pickup_radius: float = 32
+@export var pickup_radius: float = 32
 
 var player: PlayerCharacter
 

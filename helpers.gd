@@ -2,6 +2,7 @@ class_name Helpers
 
 const MAX_FLT:float = 1.79769e308
 static var LEVEL_ROOT_NODE: Node2D
+static var PLAYER: PlayerCharacter
 
 static func get_time_seconds() -> float:
 	return Time.get_ticks_msec() * 0.001

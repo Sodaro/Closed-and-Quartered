@@ -23,7 +23,7 @@ buses/default_bus_layout="uid://0noow8caneaa"
 
 HUD="*uid://cyywtqhjjema4"
 AudioManager="*uid://b4upv2f0xpoce"
-Globals="*uid://cqihjg701vkli"
+ComponentManager="*uid://bgqqlsog1j763"
 
 [display]
 

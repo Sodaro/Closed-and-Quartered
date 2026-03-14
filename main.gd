@@ -45,11 +45,11 @@ func _on_main_menu_start_game_pressed() -> void:
 	pass # Replace with function body.
 	
 func _handle_level_completed(_level: Level) -> void:
+	current_level_index += 1
 	load_out_level()
 	
 func load_out_level() -> void:
 	get_tree().paused = true
-	current_level_index += 1
 	$CanvasLayer/Wipe.start_wipe_in(_wipe_in_duration, _wipe_in_idle_duration)
 	
 func _wipe_in_finished() -> void:
@@ -70,15 +70,19 @@ func _wipe_in_finished() -> void:
 func load_level(index: int) -> void:
 	current_level_index = index
 	current_level = levels[current_level_index].instantiate()
+	
 	current_level.level_completed.connect(_handle_level_completed)
+	current_level.level_restart.connect(_handle_level_restart)
+	
 	current_level.process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_child(current_level)
 	current_level.setup()
-	#current_level.process_mode = Node.PROCESS_MODE_DISABLED
-	#current_level.call_deferred("setup")
+
 	show_hud()
 	$CanvasLayer/Wipe.start_wipe_out(_wipe_out_duration, _wipe_out_idle_duration)
 
+func _handle_level_restart() -> void:
+	load_out_level()
 
 func _on_win_back_button_pressed() -> void:
 	current_level_index = -1

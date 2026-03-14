@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_ciew8"]
 [ext_resource type="Texture2D" uid="uid://pxdbk2r7vhy1" path="res://assets/art/wall.png" id="1_mcks8"]
+[ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="3_cbwj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slt0o"]
 size = Vector2(32, 32)
@@ -14,3 +15,8 @@ texture = ExtResource("1_mcks8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879193697]
 shape = SubResource("RectangleShape2D_slt0o")
+
+[node name="HitResponseComponent" type="Node2D" parent="." unique_id=999296638]
+script = ExtResource("3_cbwj4")
+surface_type = 1
+metadata/_custom_type_script = "uid://cn2oay8wwk0pa"

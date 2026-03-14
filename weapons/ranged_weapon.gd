@@ -2,11 +2,16 @@ extends WeaponBase
 class_name RangedWeapon
 
 @export var projectile_class: PackedScene
-#var projectile_class: Resource = load(projectile_class_path)
+@export var projectile_spawn: Node
+@export var ammo_count: int = 8
 
-func use_weapon():
-	var instance = projectile_class.instantiate()
-	Helpers.LEVEL_ROOT_NODE.add_child(instance)
-	instance.global_rotation = global_rotation
-	instance.global_position = global_position
-	pass
+func can_use_weapon() -> bool:
+	if !super.can_use_weapon():
+		return false
+	if ammo_count <= 0:
+		return false
+	return true
+	
+func use_weapon() -> void:
+	super.use_weapon()
+	ammo_count -= 1

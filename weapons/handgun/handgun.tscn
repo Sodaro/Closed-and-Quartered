@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://lu20df8gxi6p"]
+
+[ext_resource type="Script" uid="uid://bscp5yovmb5g3" path="res://weapons/handgun/handgun.gd" id="1_0q1lo"]
+[ext_resource type="PackedScene" uid="uid://cyfkbbn4sqiuc" path="res://weapons/projectile.tscn" id="2_lfddp"]
+[ext_resource type="PackedScene" uid="uid://bcwmcj056h1dd" path="res://components/pickup_component.tscn" id="3_68qqy"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="4_3hhdt"]
+[ext_resource type="Texture2D" uid="uid://cvaiesf3vadvs" path="res://assets/art/handgun.png" id="5_dojnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0q1lo"]
+
+[node name="Handgun" type="CharacterBody2D" unique_id=38970184 node_paths=PackedStringArray("projectile_spawn")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_0q1lo")
+projectile_class = ExtResource("2_lfddp")
+projectile_spawn = NodePath("ProjectileSpawn")
+ammo_count = 16
+repeat_type = 1
+cooldown = 0.2
+
+[node name="PickupComponent" parent="." unique_id=1725968166 instance=ExtResource("3_68qqy")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=670643478]
+material = ExtResource("4_3hhdt")
+position = Vector2(0, 4)
+texture = ExtResource("5_dojnw")
+
+[node name="ProjectileSpawn" type="Node2D" parent="." unique_id=1340994149]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129325022]
+shape = SubResource("CircleShape2D_0q1lo")
+debug_color = Color(0.9557405, 0.16387802, 0.34902266, 0.41960785)

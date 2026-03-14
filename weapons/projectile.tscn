@@ -8,6 +8,8 @@
 radius = 4.0
 
 [node name="Projectile" type="CharacterBody2D" unique_id=820520293]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_wiw7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1273714895]

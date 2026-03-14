@@ -10,11 +10,22 @@ var weapon: WeaponBase
 
 var has_collected_collectible: bool
 
+var health: float = 1.0
+var is_fragile: bool = false
+var is_dead: bool = false
+
+signal player_died
+
 func _ready() -> void:
 	look_dir = Vector2.RIGHT
+	$HitResponseComponent.hit_event.connect(_handle_hit)
+	$HealthComponent.health_depleted.connect(_handle_health_depleted)
 	
-func handle_hit(position: Vector2, direction: Vector2, damage: float):
-	pass
+func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
+	$HealthComponent.damage_health(damage)
+	
+func _handle_health_depleted() -> void:
+	player_died.emit()
 	
 func handle_pickups() -> void:
 	if (nearby_pickups.size() < 0):
@@ -36,9 +47,9 @@ func handle_pickups() -> void:
 	var new_weapon: WeaponBase = closest_pickup.get_parent() as WeaponBase
 	if new_weapon != null:
 		if weapon != null:
-			weapon.reparent(get_parent())
 			weapon.drop_weapon()
 		weapon = new_weapon
+		weapon.pick_up_weapon(self)
 		match (weapon.equip_slot):
 			WeaponBase.WeaponEquipSlot.FRONT:
 				weapon.reparent($FrontAttach)
@@ -56,6 +67,9 @@ func handle_pickups() -> void:
 func handle_use_weapon() -> void:
 	if weapon == null:
 		return
+		
+	if !weapon.can_use_weapon():
+		return
 	
 	var should_use: bool = false
 	match (weapon.repeat_type):
@@ -68,10 +82,21 @@ func handle_use_weapon() -> void:
 		return
 		
 	weapon.use_weapon()
+	
+func handle_throw_weapon() -> void:
+	if weapon == null:
+		return
+	
+	if !Input.is_action_just_pressed("throw_weapon"):
+		return
+	
+	weapon.throw_weapon()
+	weapon = null
 
 func _process(delta: float) -> void:
 	handle_pickups()
 	handle_use_weapon()
+	handle_throw_weapon()
 	var up: float = Input.get_axis("down","up")
 	var right: float = Input.get_axis("left","right")
 	var move_dir: Vector2 = (Vector2.RIGHT * right + Vector2.UP * up).normalized()

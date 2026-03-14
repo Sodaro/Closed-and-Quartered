@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dw1yli4dogk5j" path="res://level.gd" id="1_fdgl0"]
 [ext_resource type="PackedScene" uid="uid://bevms62jtinl" path="res://player/player.tscn" id="2_hgv6m"]
 [ext_resource type="PackedScene" uid="uid://c38or1gus36ru" path="res://level_actors/solid_wall.tscn" id="3_hgv6m"]
-[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun.tscn" id="4_5p57d"]
+[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun/handgun.tscn" id="4_5p57d"]
 [ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="5_r8aof"]
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_b2w0k"]
 
