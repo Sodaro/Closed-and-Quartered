@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bxwsa34pn2eu2"]
+
+[ext_resource type="Texture2D" uid="uid://cv0tvveixjmsj" path="res://assets/art/cursor.png" id="1_6arnp"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_i7p8v"]
+[ext_resource type="Script" uid="uid://cn7f8toad0ijs" path="res://player/cursor.gd" id="3_i7p8v"]
+
+[node name="Cursor" type="TextureRect" unique_id=870222082]
+process_priority = 2
+material = ExtResource("1_i7p8v")
+texture = ExtResource("1_6arnp")
+script = ExtResource("3_i7p8v")

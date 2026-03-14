@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ddttsw8kd05b4"]
+
+[ext_resource type="Script" uid="uid://dw1yli4dogk5j" path="res://level.gd" id="1_3hls8"]
+[ext_resource type="PackedScene" uid="uid://bevms62jtinl" path="res://player/player.tscn" id="2_hbghi"]
+[ext_resource type="PackedScene" uid="uid://c38or1gus36ru" path="res://level_actors/solid_wall.tscn" id="3_81a5f"]
+[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun.tscn" id="4_gg43x"]
+[ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="5_mllcm"]
+[ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_q7ibo"]
+
+[node name="Level01" type="Node2D" unique_id=460206190 node_paths=PackedStringArray("level_exit", "player")]
+script = ExtResource("1_3hls8")
+level_exit = NodePath("LevelExit")
+player = NodePath("Player")
+metadata/_custom_type_script = "uid://dw1yli4dogk5j"
+
+[node name="Player" parent="." unique_id=471040967 instance=ExtResource("2_hbghi")]
+position = Vector2(334, 192)
+
+[node name="SolidWall" parent="." unique_id=844711368 instance=ExtResource("3_81a5f")]
+position = Vector2(160, 3.0000038)
+rotation = -1.5755471
+scale = Vector2(15.040003, 1)
+
+[node name="SolidWall2" parent="." unique_id=1509187436 instance=ExtResource("3_81a5f")]
+position = Vector2(277, 255)
+scale = Vector2(8.460002, 1.4)
+
+[node name="SolidWall3" parent="." unique_id=990584220 instance=ExtResource("3_81a5f")]
+position = Vector2(-61.99997, -223.00002)
+rotation = -3.1415927
+scale = Vector2(15.040003, 1)
+
+[node name="SolidWall7" parent="." unique_id=1955565729 instance=ExtResource("3_81a5f")]
+position = Vector2(-289, -463)
+rotation = -1.5837572
+scale = Vector2(15.040003, 1)
+
+[node name="SolidWall8" parent="." unique_id=2012239737 instance=ExtResource("3_81a5f")]
+position = Vector2(-69.000046, -720)
+scale = Vector2(15.040003, 1)
+
+[node name="SolidWall9" parent="." unique_id=1322530814 instance=ExtResource("3_81a5f")]
+position = Vector2(408.99994, -722)
+scale = Vector2(19.160004, 0.9409395)
+
+[node name="SolidWall6" parent="." unique_id=473819649 instance=ExtResource("3_81a5f")]
+position = Vector2(701, -458)
+rotation = 1.5711443
+scale = Vector2(17.159933, 1)
+
+[node name="SolidWall4" parent="." unique_id=1498833982 instance=ExtResource("3_81a5f")]
+position = Vector2(419.00006, 38.999985)
+rotation = -1.5496415
+scale = Vector2(15.040003, 1)
+
+[node name="SolidWall5" parent="." unique_id=656825335 instance=ExtResource("3_81a5f")]
+position = Vector2(560.99994, -200.99998)
+rotation = 0.010505935
+scale = Vector2(9.887428, 1)
+
+[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("4_gg43x")]
+position = Vector2(296, 140)
+
+[node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("5_mllcm")]
+position = Vector2(-103, -467.00006)
+scale = Vector2(17.235336, 25.18038)
+
+[node name="LevelCollectible" parent="." unique_id=1999132453 instance=ExtResource("6_q7ibo")]
+position = Vector2(298, -673)

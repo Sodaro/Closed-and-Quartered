@@ -1,0 +1,11 @@
+[gd_resource type="NoiseTexture2D" format=3 uid="uid://dwv6y77ppeq8k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oabld"]
+noise_type = 2
+
+[resource]
+width = 2048
+height = 2048
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_oabld")
+seamless = true

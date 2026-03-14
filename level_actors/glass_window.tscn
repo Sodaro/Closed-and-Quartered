@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://be30p8enxosl1"]
+
+[ext_resource type="Texture2D" uid="uid://d1d3gq3asjg6t" path="res://assets/art/breakable_wall.png" id="1_ikf57"]
+[ext_resource type="Script" uid="uid://d0cl6i0cmtoia" path="res://level_actors/glass_window.gd" id="1_vh8yq"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="2_00moy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anlc6"]
+size = Vector2(32, 32)
+
+[node name="GlassWindow" type="StaticBody2D" unique_id=503987870]
+script = ExtResource("1_vh8yq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155807661]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_anlc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340051281]
+material = ExtResource("2_00moy")
+texture = ExtResource("1_ikf57")

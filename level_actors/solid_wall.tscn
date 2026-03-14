@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c38or1gus36ru"]
+
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_ciew8"]
+[ext_resource type="Texture2D" uid="uid://pxdbk2r7vhy1" path="res://assets/art/wall.png" id="1_mcks8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slt0o"]
+size = Vector2(32, 32)
+
+[node name="SolidWall" type="StaticBody2D" unique_id=844711368]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178556598]
+material = ExtResource("1_ciew8")
+texture = ExtResource("1_mcks8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879193697]
+shape = SubResource("RectangleShape2D_slt0o")

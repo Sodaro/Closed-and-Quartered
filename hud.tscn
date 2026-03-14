@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cyywtqhjjema4"]
+
+[ext_resource type="PackedScene" uid="uid://bxwsa34pn2eu2" path="res://player/cursor.tscn" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1406591816]
+
+[node name="Cursor" parent="." unique_id=870222082 instance=ExtResource("1_37p78")]
+offset_right = 16.0
+offset_bottom = 16.0

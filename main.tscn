@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dwjopiwlrs0cg"]
+
+[ext_resource type="Script" uid="uid://c8ttdgntb828h" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dsyb72g1bumen" path="res://levels/level_03.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ddttsw8kd05b4" path="res://levels/level_01.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://btao44f7ymy1g" path="res://levels/level_02.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://dggridjdx1hei" path="res://levels/level_04.tscn" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://c3buvk3plfk5" path="res://levels/level_05.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://gmntor6b33ir" path="res://UI/main_menu.tscn" id="7_272bh"]
+[ext_resource type="Script" uid="uid://clujaost7xhfm" path="res://wipe.gd" id="8_5vw27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
+font_size = 24
+
+[node name="Main" type="Node" unique_id=1911769299]
+script = ExtResource("1_0xm2m")
+levels = Array[PackedScene]([ExtResource("2_7mycd"), ExtResource("3_272bh"), ExtResource("1_ig7tw"), ExtResource("5_5vw27"), ExtResource("6_kek77")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=658215102]
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=863399875 instance=ExtResource("7_272bh")]
+process_mode = 1
+
+[node name="WinScreen" type="Panel" parent="CanvasLayer" unique_id=702536706]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinScreen" unique_id=2066914177]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -70.5
+offset_right = 106.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLabel" type="Label" parent="CanvasLayer/WinScreen/VBoxContainer" unique_id=1454240091]
+layout_mode = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="ThanksLabel" type="Label" parent="CanvasLayer/WinScreen/VBoxContainer" unique_id=826761467]
+layout_mode = 2
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_5vw27")
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CanvasLayer/WinScreen/VBoxContainer" unique_id=1133388577]
+layout_mode = 2
+text = "Exit to Main Menu"
+
+[node name="Wipe" type="ColorRect" parent="CanvasLayer" unique_id=1805980927]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_5vw27")
+
+[connection signal="start_game_pressed" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinScreen/VBoxContainer/BackButton" to="." method="_on_win_back_button_pressed"]

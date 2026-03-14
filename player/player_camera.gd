@@ -1,0 +1,57 @@
+extends Camera2D
+class_name PlayerCamera
+
+var player: PlayerCharacter
+
+var has_look_position_override: bool
+var is_returning_to_player: bool
+
+var override_start_position: Vector2 = Vector2.ZERO
+var override_target_position: Vector2 = Vector2.ZERO
+var override_move_duration: float = 0.0
+var override_time_started_moving: float
+
+var look_range: float = 150.0
+
+#var camera_center_offset: Vector2 = Vector2(640, 360)
+
+func go_to_position(target_position: Vector2, move_duration: float):
+	has_look_position_override = true
+	is_returning_to_player = false
+	override_start_position = global_position
+	override_target_position = target_position
+	override_move_duration = move_duration
+	override_time_started_moving = Helpers.get_time_seconds()
+	
+func return_to_player(move_duration: float):
+	is_returning_to_player = true
+	override_start_position = global_position
+	override_target_position = player.global_position
+	override_move_duration = move_duration
+	override_time_started_moving = Helpers.get_time_seconds()
+	
+func handle_look_override() -> void:
+	var alpha: float = Helpers.clamp01(Helpers.get_time_since(override_time_started_moving) / override_move_duration)
+	global_position = lerp(override_start_position, override_target_position, alpha)
+	if is_returning_to_player && alpha >= 1.0:
+		is_returning_to_player = false
+		has_look_position_override = false
+		
+
+func _process(delta: float) -> void:
+	if !has_look_position_override:
+		var mouse_position: Vector2 = Helpers.get_global_mouse_position(get_viewport())
+		var player_position: Vector2 = player.global_position
+		var to_mouse: Vector2 = (mouse_position - player_position)
+		if to_mouse.is_zero_approx():
+			to_mouse = player.transform.x
+		#var desired_dist: float = to_mouse.length()
+		var clamped_dist: float = look_range
+		var target_position: Vector2 = player_position + to_mouse.normalized() * clamped_dist
+		if (target_position - global_position).length() < 15:
+			return
+		var new_position: Vector2 = lerp(global_position, target_position, minf(1.0, 10.0 * delta))
+		global_position = new_position
+	else:
+		handle_look_override()
+	
