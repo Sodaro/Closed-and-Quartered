@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bamyf0xiumnfd"]
 
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_6x64f"]
+
 [node name="WorldText" type="Label" unique_id=1303647266]
+material = ExtResource("1_6x64f")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
