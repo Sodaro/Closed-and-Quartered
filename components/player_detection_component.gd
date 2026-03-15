@@ -7,8 +7,8 @@ class_name PlayerDetectionComponent
 var sight_range_squared: float
 var proximity_range_squared: float
 var time_spotted_player: float
-
 var has_detected_player: bool
+
 func _ready() -> void:
 	super._ready()
 	proximity_range_squared = proximity_detection_range * proximity_detection_range
@@ -17,7 +17,8 @@ func _ready() -> void:
 func _can_see_player() -> bool:
 	var player_pos: Vector2 = Helpers.PLAYER.global_position
 	var to_player: Vector2 = player_pos - global_position
-	if to_player.length_squared() > sight_range_squared:
+	var dist: float = to_player.length_squared()
+	if dist > sight_range_squared:
 		return false
 	var angle_to_player: float = rad_to_deg(global_transform.x.angle_to(to_player))
 	if angle_to_player > max_angle || angle_to_player < -max_angle:

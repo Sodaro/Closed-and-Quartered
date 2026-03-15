@@ -1,9 +1,21 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 100.0
+@export var movement_speed: float = 300.0
+@export var weapon: MeleeWeapon
+var _reaction_time: float = 0.25
+var _melee_reaction_time: float = 0.25
+var _time_in_melee_range: float
+
+var attack_range_sq: float
+
+var chasing_player: bool
+
 
 func _ready() -> void:
+	attack_range_sq = (weapon.hit_radius + 30) * (weapon.hit_radius + 30)
+	$NavigationAgent2D.max_speed = movement_speed
 	$NavigationAgent2D.velocity_computed.connect(Callable(_on_velocity_computed))
+	$Katana.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
 
 func set_movement_target(movement_target: Vector2):
 		$NavigationAgent2D.set_target_position(movement_target)
@@ -15,7 +27,7 @@ func _physics_process(delta):
 	if 	$NavigationAgent2D.is_navigation_finished():
 		return
 
-	var next_path_position: Vector2 = 	$NavigationAgent2D.get_next_path_position()
+	var next_path_position: Vector2 = $NavigationAgent2D.get_next_path_position()
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_speed
 	if 	$NavigationAgent2D.avoidance_enabled:
 			$NavigationAgent2D.set_velocity(new_velocity)
@@ -24,7 +36,29 @@ func _physics_process(delta):
 
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
+	rotation = velocity.angle()
 	move_and_slide()
 
 
 func _process(delta: float) -> void:
+	if !chasing_player:
+		if !$PlayerDetectionComponent.has_detected_player || Helpers.get_time_since($PlayerDetectionComponent.time_spotted_player) < _reaction_time:
+			return
+		
+	chasing_player = true
+	set_movement_target(Helpers.PLAYER.global_position)
+	if global_position.distance_squared_to(Helpers.PLAYER.global_position) < attack_range_sq:
+		_time_in_melee_range += delta
+		if _time_in_melee_range >= _melee_reaction_time && weapon.can_use_weapon():
+			weapon.use_weapon()
+	else:
+		_time_in_melee_range = 0
+
+
+func _on_hit_response_component_hit_event(hit_position: Vector2, direction: Vector2, damage: float) -> void:
+	$HealthComponent.damage_health(damage)
+	chasing_player = true
+
+
+func _on_health_component_health_depleted() -> void:
+	queue_free()

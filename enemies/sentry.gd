@@ -3,7 +3,7 @@ class_name Sentry
 @export var weapon: RangedWeapon
 
 var _reaction_time: float = 0.5
-var _rotation_speed: float = 90
+var _rotation_speed: float = 120
 
 var health: float = 1.0
 var is_fragile: bool = false

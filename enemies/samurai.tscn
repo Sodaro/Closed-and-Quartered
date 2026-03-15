@@ -1,9 +1,57 @@
 [gd_scene format=3 uid="uid://dg8th1i7f0onr"]
 
 [ext_resource type="Script" uid="uid://dh05vsucoejlp" path="res://enemies/samurai.gd" id="1_lpop3"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="2_rppr6"]
+[ext_resource type="Texture2D" uid="uid://bedhq3e7au5hp" path="res://assets/art/samurai.png" id="3_rppr6"]
+[ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="4_8yw6n"]
+[ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="5_snkc1"]
+[ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="6_fuv3h"]
+[ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="7_f3nbe"]
 
-[node name="Samurai" type="CharacterBody2D" unique_id=1524805275]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yw6n"]
+radius = 16.0
+
+[node name="Samurai" type="CharacterBody2D" unique_id=1524805275 node_paths=PackedStringArray("weapon")]
+collision_mask = 3
 script = ExtResource("1_lpop3")
-movement_speed = null
+weapon = NodePath("Katana")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=32237466]
+path_desired_distance = 8.0
+avoidance_enabled = true
+radius = 16.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1751312611]
+material = ExtResource("2_rppr6")
+texture = ExtResource("3_rppr6")
+
+[node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=2024629377]
+script = ExtResource("4_8yw6n")
+sight_detection_range = 200.0
+metadata/_custom_type_script = "uid://gsqw10t640bb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324612601]
+shape = SubResource("CircleShape2D_8yw6n")
+
+[node name="FrontAttach" type="Node2D" parent="." unique_id=1116908015]
+position = Vector2(28, 0)
+
+[node name="RightAttach" type="Node2D" parent="." unique_id=1421020688]
+position = Vector2(0, 32)
+
+[node name="LeftAttach" type="Node2D" parent="." unique_id=1976602940]
+position = Vector2(0, -32)
+
+[node name="Katana" parent="." unique_id=642440031 instance=ExtResource("5_snkc1")]
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1375873650]
+script = ExtResource("6_fuv3h")
+health = 5.0
+metadata/_custom_type_script = "uid://tbehxd25cavq"
+
+[node name="HitResponseComponent" type="Node2D" parent="." unique_id=389037816]
+script = ExtResource("7_f3nbe")
+metadata/_custom_type_script = "uid://cn2oay8wwk0pa"
+
+[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
+[connection signal="hit_event" from="HitResponseComponent" to="." method="_on_hit_response_component_hit_event"]

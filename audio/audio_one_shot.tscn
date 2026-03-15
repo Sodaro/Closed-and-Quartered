@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpj3b3pv0x3a8" path="res://audio/audio_one_shot.gd" id="1_57m7u"]
 
 [node name="AudioOneShot" type="AudioStreamPlayer2D" unique_id=1382125606]
+process_mode = 3
 max_polyphony = 8
 bus = &"SFX"
 script = ExtResource("1_57m7u")

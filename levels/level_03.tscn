@@ -11,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="9_3ew82"]
 [ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="10_0bj1y"]
 [ext_resource type="PackedScene" uid="uid://b0vrbbxlb2cvp" path="res://weapons/rock/rock.tscn" id="11_6181x"]
+[ext_resource type="PackedScene" uid="uid://dg8th1i7f0onr" path="res://enemies/samurai.tscn" id="12_j4ks3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j4ks3"]
+vertices = PackedVector2Array(504.6797, 438.0078, 285.67188, 341.09375, 379.53125, 149.03906, 615.09375, 256.8125, 769.3594, 521.96094, 672.5625, 260, 1803.3984, 258.9922, 1392.4219, 513.78125, 1857.9375, 1058.1484, 1378.4063, 1062.8281, 1357.1328, -410.0625, 1855.8906, -411.9297, 1854.1016, -147.21094, 1486.9375, -152.21094, 1361.8672, 169.0625, 1481.0078, -52.859375, 1819.1016, 171.07813, 1854.0469, -55.867188)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 7, 6), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 10, 13, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(16, 17, 8), PackedInt32Array(16, 8, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(264, 349, 499, 453, 767, 538, 1376, 530, 1362, 1079, 1874, 1074, 1870, -72, 1498, -69, 1502, -136, 1870, -131, 1872, -428, 1341, -426, 1346, 185, 1800, 187, 1790, 243, 673, 244, 619, 241, 372, 128)])
+agent_radius = 16.0
 
 [node name="Level03" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_lear0")
@@ -98,7 +105,7 @@ rotation = 3.0904698
 position = Vector2(1566, 304)
 
 [node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("9_3ew82")]
-position = Vector2(642.99994, 273)
+position = Vector2(643.99994, 275)
 rotation = 1.5955698
 
 [node name="GlassWindow2" parent="." unique_id=2092011260 instance=ExtResource("9_3ew82")]
@@ -118,3 +125,17 @@ position = Vector2(391, 283)
 
 [node name="Rock" parent="." unique_id=405712810 instance=ExtResource("11_6181x")]
 position = Vector2(406, 231)
+
+[node name="Samurai" parent="." unique_id=1524805275 instance=ExtResource("12_j4ks3")]
+position = Vector2(1601, 710)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=492709650]
+navigation_polygon = SubResource("NavigationPolygon_j4ks3")
+navigation_layers = 3
+metadata/_edit_lock_ = true
+
+[node name="Samurai2" parent="." unique_id=34651871 instance=ExtResource("12_j4ks3")]
+position = Vector2(1248, 393)
+
+[node name="GlassWindow5" parent="." unique_id=1735151942 instance=ExtResource("9_3ew82")]
+position = Vector2(985, 379)

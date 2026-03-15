@@ -24,3 +24,8 @@ texture = ExtResource("1_ikf57")
 script = ExtResource("4_8fviv")
 surface_type = 2
 metadata/_custom_type_script = "uid://cn2oay8wwk0pa"
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1151698722]
+radius = 35.2
+vertices = PackedVector2Array(-32, -16, -32, 16, 32, 16, 32, -16)
+avoidance_layers = 3

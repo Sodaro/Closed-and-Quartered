@@ -32,6 +32,10 @@ func handle_pickups() -> void:
 	for pickup in all_pickups:
 		if pickup.get_parent() == weapon:
 			continue
+		var temp_weapon: WeaponBase = pickup.get_parent() as WeaponBase
+		if temp_weapon != null && temp_weapon.weapon_owner != null:
+			continue
+			
 		var dist: float = (pickup.global_position - global_position).length_squared()
 		if dist >= closest_dist || dist >= pickup.squared_pickup_radius():
 			pickup.hide_pickup_text()
