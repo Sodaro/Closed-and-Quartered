@@ -37,6 +37,8 @@ func _physics_process(delta):
 
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
+	if velocity.is_zero_approx():
+		return
 	rotation = velocity.angle()
 	move_and_slide()
 

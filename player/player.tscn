@@ -31,7 +31,7 @@ position = Vector2(0, -32)
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=2023874258]
 script = ExtResource("4_yw30f")
-health = 10.0
+health = 2.0
 metadata/_custom_type_script = "uid://tbehxd25cavq"
 
 [node name="HitResponseComponent" type="Node2D" parent="." unique_id=309131491]
