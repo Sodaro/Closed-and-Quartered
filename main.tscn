@@ -14,7 +14,7 @@ font_size = 24
 
 [node name="Main" type="Node" unique_id=1911769299]
 script = ExtResource("1_0xm2m")
-levels = Array[PackedScene]([ExtResource("1_ig7tw"), ExtResource("3_272bh")])
+levels = Array[PackedScene]([ExtResource("3_272bh"), ExtResource("1_ig7tw")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=658215102]
 

@@ -21,6 +21,10 @@ func pick_up_weapon(new_owner: Node, front: Node, left: Node, right: Node) -> vo
 
 
 func _process(delta: float) -> void:
+	if weapon_owner == null:
+		super._process(delta)
+		return
+		
 	if Helpers.get_time_since(last_time_used) < 0.15:
 		_handle_swing()
 	super._process(delta)
