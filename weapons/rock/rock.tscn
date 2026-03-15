@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b0vrbbxlb2cvp"]
+
+[ext_resource type="Script" uid="uid://bx34g7cak1uxc" path="res://weapons/ranged_weapon.gd" id="1_3qf6n"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_34ivt"]
+[ext_resource type="Texture2D" uid="uid://fcqgmthdtma4" path="res://assets/art/rock.png" id="2_3qf6n"]
+[ext_resource type="Script" uid="uid://12xpdtv0twus" path="res://components/pickup_component.gd" id="4_lhlnk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34ivt"]
+radius = 5.0990195
+
+[node name="Rock" type="CharacterBody2D" unique_id=405712810]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_3qf6n")
+ammo_count = 0
+repeat_type = 1
+equip_slot = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1309624786]
+material = ExtResource("1_34ivt")
+texture = ExtResource("2_3qf6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=993777282]
+shape = SubResource("CircleShape2D_34ivt")
+
+[node name="PickupComponent" type="Node2D" parent="." unique_id=1384290506]
+script = ExtResource("4_lhlnk")
+pickup_radius = 16.0
+metadata/_custom_type_script = "uid://12xpdtv0twus"

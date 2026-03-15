@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="8_2wlag"]
 [ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="9_3ew82"]
 [ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="10_0bj1y"]
+[ext_resource type="PackedScene" uid="uid://b0vrbbxlb2cvp" path="res://weapons/rock/rock.tscn" id="11_6181x"]
 
 [node name="Level03" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_lear0")
@@ -114,3 +115,6 @@ rotation = 1.5955698
 
 [node name="Katana" parent="." unique_id=642440031 instance=ExtResource("10_0bj1y")]
 position = Vector2(391, 283)
+
+[node name="Rock" parent="." unique_id=405712810 instance=ExtResource("11_6181x")]
+position = Vector2(406, 231)

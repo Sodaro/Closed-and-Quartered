@@ -11,6 +11,8 @@
 size = Vector2(39, 5)
 
 [node name="Katana" type="CharacterBody2D" unique_id=642440031]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_nevyd")
 swing_effect_scene = ExtResource("2_cqb8l")
 repeat_type = 1

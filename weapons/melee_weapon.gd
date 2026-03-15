@@ -11,6 +11,7 @@ var swing_direction: Vector2
 func _process(delta: float) -> void:
 	if Helpers.get_time_since(last_time_used) < 0.2:
 		_handle_swing()
+	super._process(delta)
 		
 func _handle_swing() -> void:
 	var forward: Vector2 = weapon_owner.transform.x

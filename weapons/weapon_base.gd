@@ -69,6 +69,7 @@ func throw_weapon() -> void:
 	
 func drop_weapon() -> void:
 	reparent(Helpers.LEVEL_ROOT_NODE)
+	global_position = front_attach.global_positionsa
 	collision_layer = initial_layer
 	previous_owner = weapon_owner
 	weapon_owner = null
