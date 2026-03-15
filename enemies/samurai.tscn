@@ -27,7 +27,8 @@ texture = ExtResource("3_rppr6")
 
 [node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=2024629377]
 script = ExtResource("4_8yw6n")
-sight_detection_range = 200.0
+sight_detection_range = 300.0
+proximity_detection_range = 200.0
 metadata/_custom_type_script = "uid://gsqw10t640bb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324612601]

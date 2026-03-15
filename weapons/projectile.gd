@@ -15,6 +15,7 @@ func _ready() -> void:
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
 	transform.x = direction.normalized()
 	transform.y = transform.x.orthogonal()
+	speed *= 1.5
 
 func _process(delta: float) -> void:
 	var move_dir: Vector2 = transform.x
