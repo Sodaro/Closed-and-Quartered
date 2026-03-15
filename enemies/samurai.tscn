@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dg8th1i7f0onr"]
+
+[ext_resource type="Script" uid="uid://dh05vsucoejlp" path="res://enemies/samurai.gd" id="1_lpop3"]
+
+[node name="Samurai" type="CharacterBody2D" unique_id=1524805275]
+script = ExtResource("1_lpop3")
+movement_speed = null
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=32237466]

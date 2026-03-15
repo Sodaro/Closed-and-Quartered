@@ -5,8 +5,20 @@ class_name MeleeWeapon
 @export var swing_effect_scene: PackedScene
 
 var swing_direction: Vector2
+var default_flip_h: bool
+var default_flip_v: bool
+
+func _ready() -> void:
+	default_flip_h = $Sprite2D.flip_h
+	default_flip_v = $Sprite2D.flip_v
 # add swing effect
 # check for hits in front and inside of radius
+
+func pick_up_weapon(new_owner: Node, front: Node, left: Node, right: Node) -> void:
+	super.pick_up_weapon(new_owner, front, left, right)
+	$Sprite2D.flip_h = default_flip_h
+	$Sprite2D.flip_v = default_flip_v
+
 
 func _process(delta: float) -> void:
 	if Helpers.get_time_since(last_time_used) < 0.2:
@@ -14,7 +26,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 		
 func _handle_swing() -> void:
-	var forward: Vector2 = weapon_owner.transform.x
+	var forward: Vector2 = weapon_owner.global_transform.x
 	var hit_origin: Vector2 = weapon_owner.global_position
 	var responses: Array = ComponentManager.get_all_components_of_type(HitResponseComponent)
 	var sq_hit_radius: float = hit_radius * hit_radius
@@ -35,7 +47,7 @@ func _handle_swing() -> void:
 
 func use_weapon() -> void:
 	super.use_weapon()
-	swing_direction = weapon_owner.transform.x
+	swing_direction = weapon_owner.global_transform.x
 	var effect_instance = swing_effect_scene.instantiate()
 	var hit_origin: Vector2 = weapon_owner.global_position
 	effect_instance.global_position = hit_origin + swing_direction * hit_radius * 0.5
@@ -46,9 +58,12 @@ func use_weapon() -> void:
 	
 	if (current_attach == right_attach):
 		current_attach = left_attach
-		reparent(current_attach, false)
+		reparent(current_attach, true)
 		$Sprite2D.flip_h = true if equip_slot == WeaponEquipSlot.RIGHT else false
 	elif (current_attach == left_attach):
 		current_attach = right_attach
-		reparent(current_attach, false)
+		reparent(current_attach, true)
 		$Sprite2D.flip_h = true if equip_slot == WeaponEquipSlot.LEFT else false
+		
+	position = Vector2.ZERO
+	rotation = 0

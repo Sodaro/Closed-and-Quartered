@@ -1,7 +1,7 @@
 extends RangedWeapon
 class_name Shotgun
 
-var num_pellets: int = 32
+var num_pellets: int = 12
 
 func use_weapon():
 	super.use_weapon()

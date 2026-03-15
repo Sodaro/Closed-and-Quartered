@@ -57,6 +57,8 @@ func pick_up_weapon(new_owner: Node, front: Node, left: Node, right: Node) -> vo
 		WeaponEquipSlot.LEFT:
 			current_attach = left
 	reparent(current_attach)
+	position = Vector2.ZERO
+	rotation = 0
 
 func use_weapon() -> void:
 	AudioOneShot.play_sound(use_sound, global_position, Helpers.LEVEL_ROOT_NODE)
@@ -69,7 +71,7 @@ func throw_weapon() -> void:
 	
 func drop_weapon() -> void:
 	reparent(Helpers.LEVEL_ROOT_NODE)
-	global_position = front_attach.global_positionsa
+	global_position = front_attach.global_position
 	collision_layer = initial_layer
 	previous_owner = weapon_owner
 	weapon_owner = null
@@ -88,7 +90,7 @@ func _process(delta: float) -> void:
 	if result:
 		var collider: Object = result.get_collider()
 		var response = ComponentManager.get_component(collider, HitResponseComponent)
-		if (-result.get_normal()).dot(velocity.normalized()) < 0.5:
+		if (-result.get_normal()).dot(velocity.normalized()) < 0.25:
 			return
 		if response:
 			if velocity.length() > 100:
@@ -97,10 +99,10 @@ func _process(delta: float) -> void:
 				HitResponseComponent.HitSurfaceType.Absorb:
 					pass
 				HitResponseComponent.HitSurfaceType.Reflective:
-					velocity = velocity.bounce(result.get_normal())
-					transform.x = transform.x.bounce(result.get_normal()).normalized()
-					transform.y	= transform.x.orthogonal()
-					return
+					pass
+					#velocity = velocity.bounce(result.get_normal())
+					#global_rotation = velocity.angle()
+					#return
 				HitResponseComponent.HitSurfaceType.Fragile:
 					return
 		velocity = Vector2.ZERO

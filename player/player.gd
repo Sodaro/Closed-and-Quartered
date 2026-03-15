@@ -16,7 +16,7 @@ signal player_died
 
 func _ready() -> void:
 	look_dir = Vector2.RIGHT
-	#$HitResponseComponent.hit_event.connect(_handle_hit)
+	$HitResponseComponent.hit_event.connect(_handle_hit)
 	$HealthComponent.health_depleted.connect(_handle_health_depleted)
 	
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
@@ -53,9 +53,6 @@ func handle_pickups() -> void:
 			weapon.drop_weapon()
 		weapon = new_weapon
 		weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
-
-		weapon.position = Vector2.ZERO
-		weapon.rotation = 0
 	
 	var collectible: LevelCollectible = closest_pickup.get_parent() as LevelCollectible
 	if collectible != null:
