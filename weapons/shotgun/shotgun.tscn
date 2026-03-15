@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://caykhyce0tidl"]
 
-[ext_resource type="PackedScene" uid="uid://bcwmcj056h1dd" path="res://components/pickup_component.tscn" id="1_apfrx"]
 [ext_resource type="Script" uid="uid://bgtichv3jgn63" path="res://weapons/shotgun/shotgun.gd" id="1_ggjqm"]
 [ext_resource type="PackedScene" uid="uid://cyfkbbn4sqiuc" path="res://weapons/projectile.tscn" id="2_f42wg"]
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="2_ggjqm"]
 [ext_resource type="Texture2D" uid="uid://b1521j75hgp2i" path="res://assets/art/shotgun.png" id="3_apfrx"]
+[ext_resource type="AudioStream" uid="uid://c4ftlywe802r5" path="res://assets/audio/shotgun_shoot.wav" id="3_ya88x"]
+[ext_resource type="Script" uid="uid://12xpdtv0twus" path="res://components/pickup_component.gd" id="5_f42wg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ya88x"]
 radius = 16.0
@@ -15,11 +16,10 @@ collision_mask = 3
 script = ExtResource("1_ggjqm")
 projectile_class = ExtResource("2_f42wg")
 projectile_spawn = NodePath("ProjectileSpawn")
-ammo_count = 4
+ammo_count = 16
 repeat_type = 1
 cooldown = 1.0
-
-[node name="PickupComponent" parent="." unique_id=1725968166 instance=ExtResource("1_apfrx")]
+use_sound = ExtResource("3_ya88x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881026261]
 material = ExtResource("2_ggjqm")
@@ -31,3 +31,7 @@ texture = ExtResource("3_apfrx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=743089832]
 shape = SubResource("CircleShape2D_ya88x")
 debug_color = Color(0.9557405, 0.16387802, 0.34902266, 0.41960785)
+
+[node name="PickupComponent" type="Node2D" parent="." unique_id=1112714961]
+script = ExtResource("5_f42wg")
+metadata/_custom_type_script = "uid://12xpdtv0twus"

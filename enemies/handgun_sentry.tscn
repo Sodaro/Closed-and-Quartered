@@ -22,3 +22,12 @@ shape = SubResource("CircleShape2D_a8uqv")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=124966511]
 material = ExtResource("3_8roh4")
 texture = ExtResource("4_w11wr")
+
+[node name="FrontAttach" type="Node2D" parent="." unique_id=320825314]
+position = Vector2(25, 0)
+
+[node name="RightAttach" type="Node2D" parent="." unique_id=122109730]
+position = Vector2(0, 32)
+
+[node name="LeftAttach" type="Node2D" parent="." unique_id=31684266]
+position = Vector2(0, -32)

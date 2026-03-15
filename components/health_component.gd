@@ -7,7 +7,7 @@ signal health_depleted
 @export var is_fragile: bool = false
 
 func is_dead() -> bool:
-	return is_zero_approx(health)
+	return health <= Helpers.MIN_FLT
 
 func damage_health(damage_amount: float) -> void:
 	var was_dead: bool = is_dead()

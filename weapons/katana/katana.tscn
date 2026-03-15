@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cuvbkcxwqlk3b"]
+
+[ext_resource type="Script" uid="uid://d2o0pyqcncy70" path="res://weapons/katana/katana.gd" id="1_nevyd"]
+[ext_resource type="AudioStream" uid="uid://bfabl22e8syvt" path="res://assets/audio/katana_swing.wav" id="2_667ca"]
+[ext_resource type="PackedScene" uid="uid://dl4wdgit7ewly" path="res://weapons/katana/katana_swing_effect.tscn" id="2_cqb8l"]
+[ext_resource type="Texture2D" uid="uid://b0xmvrk4wnklc" path="res://assets/art/katana.png" id="2_paxxx"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="3_njbyu"]
+[ext_resource type="Script" uid="uid://12xpdtv0twus" path="res://components/pickup_component.gd" id="4_v2svi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paxxx"]
+size = Vector2(39, 5)
+
+[node name="Katana" type="CharacterBody2D" unique_id=642440031]
+script = ExtResource("1_nevyd")
+swing_effect_scene = ExtResource("2_cqb8l")
+repeat_type = 1
+equip_slot = 1
+cooldown = 0.2
+base_damage = 10.0
+use_sound = ExtResource("2_667ca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173867276]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_paxxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=319409984]
+material = ExtResource("3_njbyu")
+position = Vector2(1, 2.3841858e-07)
+rotation = 1.5707964
+texture = ExtResource("2_paxxx")
+
+[node name="PickupComponent" type="Node2D" parent="." unique_id=782279764]
+script = ExtResource("4_v2svi")
+metadata/_custom_type_script = "uid://12xpdtv0twus"

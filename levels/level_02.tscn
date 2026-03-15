@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_gia0r"]
 [ext_resource type="PackedScene" uid="uid://dyo4n2ioqhgye" path="res://enemies/handgun_sentry.tscn" id="7_mihb8"]
 
-[node name="Level02" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "player")]
+[node name="Level02" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_nnn84")
 bg_color = Color(1, 1, 1, 1)
 fg_color = Color(0, 0, 0, 1)
 level_exit = NodePath("LevelExit")
+collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
 metadata/_custom_type_script = "uid://dw1yli4dogk5j"
 

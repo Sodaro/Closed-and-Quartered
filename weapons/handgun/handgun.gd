@@ -7,4 +7,5 @@ func use_weapon():
 	Helpers.LEVEL_ROOT_NODE.add_child(instance)
 	instance.global_rotation = global_rotation
 	instance.global_position = projectile_spawn.global_position
+	instance.damage = base_damage
 	

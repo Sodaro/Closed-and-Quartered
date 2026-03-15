@@ -26,6 +26,9 @@ position = Vector2(32, 0)
 [node name="RightAttach" type="Node2D" parent="." unique_id=1102850586]
 position = Vector2(0, 32)
 
+[node name="LeftAttach" type="Node2D" parent="." unique_id=2147120979]
+position = Vector2(0, -32)
+
 [node name="HealthComponent" type="Node2D" parent="." unique_id=2023874258]
 script = ExtResource("4_yw30f")
 metadata/_custom_type_script = "uid://tbehxd25cavq"

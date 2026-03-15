@@ -3,15 +3,20 @@
 [ext_resource type="Script" uid="uid://dw1yli4dogk5j" path="res://level.gd" id="1_lear0"]
 [ext_resource type="PackedScene" uid="uid://bevms62jtinl" path="res://player/player.tscn" id="2_85vqe"]
 [ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="2_wq170"]
-[ext_resource type="PackedScene" uid="uid://dn3vnostujs6k" path="res://weapons/handgun/handgun.tscn" id="3_85vqe"]
+[ext_resource type="PackedScene" uid="uid://lu20df8gxi6p" path="res://weapons/handgun/handgun.tscn" id="3_85vqe"]
 [ext_resource type="PackedScene" uid="uid://c38or1gus36ru" path="res://level_actors/solid_wall.tscn" id="4_p0vsl"]
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="5_ngl01"]
+[ext_resource type="PackedScene" uid="uid://vt4jh3wdfjxa" path="res://enemies/shotgun_sentry.tscn" id="7_6hrdw"]
+[ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="8_2wlag"]
+[ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="9_3ew82"]
+[ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="10_0bj1y"]
 
-[node name="Level03" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "player")]
+[node name="Level03" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_lear0")
 bg_color = Color(0, 1, 1, 1)
 fg_color = Color(1, 0, 1, 1)
 level_exit = NodePath("LevelExit")
+collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
 metadata/_custom_type_script = "uid://dw1yli4dogk5j"
 
@@ -30,7 +35,15 @@ position = Vector2(533, 274)
 position = Vector2(981, -92)
 scale = Vector2(22.399998, 20.800001)
 
-[node name="SolidWall8" parent="." unique_id=844711368 instance=ExtResource("4_p0vsl")]
+[node name="SolidWall7" parent="." unique_id=844711368 instance=ExtResource("4_p0vsl")]
+position = Vector2(1335, 213.00002)
+scale = Vector2(28.228682, 1.5012372)
+
+[node name="SolidWall16" parent="." unique_id=1801677782 instance=ExtResource("4_p0vsl")]
+position = Vector2(1960, -98)
+scale = Vector2(28.228682, 1.5012372)
+
+[node name="SolidWall8" parent="." unique_id=1778826851 instance=ExtResource("4_p0vsl")]
 position = Vector2(447.99997, -214.99998)
 rotation = 0.45771244
 scale = Vector2(22.399998, 20.800001)
@@ -71,3 +84,33 @@ scale = Vector2(22.41557, -21.440662)
 
 [node name="LevelCollectible" parent="." unique_id=1999132453 instance=ExtResource("5_ngl01")]
 position = Vector2(1573, 998)
+
+[node name="ShotgunSentry" parent="." unique_id=883219979 instance=ExtResource("7_6hrdw")]
+position = Vector2(1421, 73.00001)
+rotation = -0.049082074
+
+[node name="ShotgunSentry2" parent="." unique_id=2021819631 instance=ExtResource("7_6hrdw")]
+position = Vector2(1735, -293)
+rotation = 3.0904698
+
+[node name="Shotgun" parent="." unique_id=2123585715 instance=ExtResource("8_2wlag")]
+position = Vector2(1566, 304)
+
+[node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("9_3ew82")]
+position = Vector2(642.99994, 273)
+rotation = 1.5955698
+
+[node name="GlassWindow2" parent="." unique_id=2092011260 instance=ExtResource("9_3ew82")]
+position = Vector2(641.99994, 339)
+rotation = 1.5955698
+
+[node name="GlassWindow3" parent="." unique_id=1737420974 instance=ExtResource("9_3ew82")]
+position = Vector2(635.99994, 403.99997)
+rotation = 1.5955698
+
+[node name="GlassWindow4" parent="." unique_id=693746923 instance=ExtResource("9_3ew82")]
+position = Vector2(601.00006, 457.00003)
+rotation = 1.5955698
+
+[node name="Katana" parent="." unique_id=642440031 instance=ExtResource("10_0bj1y")]
+position = Vector2(391, 283)

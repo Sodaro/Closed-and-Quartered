@@ -1,8 +1,10 @@
 class_name Helpers
 
-const MAX_FLT:float = 1.79769e308
+const MAX_FLT: float = 1.79769e308
+const MIN_FLT: float = 0.00001
 static var LEVEL_ROOT_NODE: Node2D
 static var PLAYER: PlayerCharacter
+static var PLAYER_CAMERA: PlayerCamera
 
 static func get_time_seconds() -> float:
 	return Time.get_ticks_msec() * 0.001

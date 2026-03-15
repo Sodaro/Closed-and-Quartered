@@ -9,31 +9,46 @@ var is_returning_to_player: bool
 var override_start_position: Vector2 = Vector2.ZERO
 var override_target_position: Vector2 = Vector2.ZERO
 var override_move_duration: float = 0.0
-var override_time_started_moving: float
+var override_active_time: float
+var override_initial_wait: float
+var override_total_duration
 
-var look_range: float = 150.0
+signal reached_position
+var look_range: float = 100.0
 
 #var camera_center_offset: Vector2 = Vector2(640, 360)
 
-func go_to_position(target_position: Vector2, move_duration: float):
+func go_to_position(target_position: Vector2, move_duration: float, initial_wait: float, reached_end_wait: float):
 	has_look_position_override = true
 	is_returning_to_player = false
 	override_start_position = global_position
 	override_target_position = target_position
 	override_move_duration = move_duration
-	override_time_started_moving = Helpers.get_time_seconds()
+	override_initial_wait = initial_wait
+	override_total_duration = initial_wait + move_duration + reached_end_wait
+	override_active_time = 0
 	
 func return_to_player(move_duration: float):
+	has_look_position_override = true
 	is_returning_to_player = true
 	override_start_position = global_position
 	override_target_position = player.global_position
 	override_move_duration = move_duration
-	override_time_started_moving = Helpers.get_time_seconds()
+	override_initial_wait = 0
+	override_total_duration = move_duration
+	override_active_time = 0
 	
 func handle_look_override() -> void:
-	var alpha: float = Helpers.clamp01(Helpers.get_time_since(override_time_started_moving) / override_move_duration)
-	global_position = lerp(override_start_position, override_target_position, alpha)
-	if is_returning_to_player && alpha >= 1.0:
+	var move_time: float = override_active_time - override_initial_wait
+	if move_time < 0:
+		return
+		
+	var move_alpha: float = Helpers.clamp01(move_time / override_move_duration)
+	global_position = lerp(override_start_position, override_target_position, move_alpha)
+	if override_active_time >= override_total_duration:
+		reached_position.emit()
+		
+	if is_returning_to_player && override_active_time >= override_total_duration:
 		is_returning_to_player = false
 		has_look_position_override = false
 		
@@ -54,4 +69,5 @@ func _process(delta: float) -> void:
 		global_position = new_position
 	else:
 		handle_look_override()
+		override_active_time += delta
 	

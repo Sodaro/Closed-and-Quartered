@@ -22,3 +22,13 @@ texture = ExtResource("4_qr7cg")
 
 [node name="Shotgun" parent="." unique_id=1923708777 instance=ExtResource("4_g363u")]
 position = Vector2(27, 0)
+ammo_count = 8
+
+[node name="FrontAttach" type="Node2D" parent="." unique_id=124340421]
+position = Vector2(28, 0)
+
+[node name="RightAttach" type="Node2D" parent="." unique_id=290395363]
+position = Vector2(0, 32)
+
+[node name="LeftAttach" type="Node2D" parent="." unique_id=232076948]
+position = Vector2(0, -32)

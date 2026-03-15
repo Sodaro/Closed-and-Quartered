@@ -4,8 +4,6 @@ class_name PlayerCharacter
 var speed: float = 500.0
 var look_dir: Vector2
 
-var nearby_pickups: Array[PickupComponent]
-
 var weapon: WeaponBase
 
 var has_collected_collectible: bool
@@ -18,7 +16,7 @@ signal player_died
 
 func _ready() -> void:
 	look_dir = Vector2.RIGHT
-	$HitResponseComponent.hit_event.connect(_handle_hit)
+	#$HitResponseComponent.hit_event.connect(_handle_hit)
 	$HealthComponent.health_depleted.connect(_handle_health_depleted)
 	
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
@@ -28,35 +26,34 @@ func _handle_health_depleted() -> void:
 	player_died.emit()
 	
 func handle_pickups() -> void:
-	if (nearby_pickups.size() < 0):
-		return
+	var closest_pickup: PickupComponent
+	var closest_dist: float = Helpers.MAX_FLT
+	var all_pickups: Array = (ComponentManager.get_all_components_of_type(PickupComponent)) 
+	for pickup in all_pickups:
+		if pickup.get_parent() == weapon:
+			continue
+		var dist: float = (pickup.global_position - global_position).length_squared()
+		if dist >= closest_dist || dist >= pickup.squared_pickup_radius():
+			pickup.hide_pickup_text()
+			continue
+		closest_pickup = pickup
+		closest_dist = dist
 	
+	if closest_pickup == null:
+		return
+		
+	closest_pickup.show_pickup_text()
 	if (!Input.is_action_just_pressed("interact")):
 		return
 		
-	var closest_pickup: PickupComponent
-	var closest_dist: float = Helpers.MAX_FLT
-	for pickup in nearby_pickups:
-		var dist: float = (pickup.global_position - global_position).length_squared()
-		if dist < closest_dist:
-			closest_pickup = pickup
-			closest_dist = dist
-	if closest_pickup == null:
-		return
 	closest_pickup.handle_picked_up()
 	var new_weapon: WeaponBase = closest_pickup.get_parent() as WeaponBase
 	if new_weapon != null:
 		if weapon != null:
 			weapon.drop_weapon()
 		weapon = new_weapon
-		weapon.pick_up_weapon(self)
-		match (weapon.equip_slot):
-			WeaponBase.WeaponEquipSlot.FRONT:
-				weapon.reparent($FrontAttach)
-				pass
-			WeaponBase.WeaponEquipSlot.RIGHT:
-				weapon.reparent($RightAttach)
-				pass
+		weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
+
 		weapon.position = Vector2.ZERO
 		weapon.rotation = 0
 	
@@ -94,6 +91,8 @@ func handle_throw_weapon() -> void:
 	weapon = null
 
 func _process(delta: float) -> void:
+	if Helpers.PLAYER_CAMERA.has_look_position_override:
+		return
 	handle_pickups()
 	handle_use_weapon()
 	handle_throw_weapon()

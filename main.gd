@@ -10,6 +10,8 @@ const _wipe_in_idle_duration: float = 0.85
 const _wipe_out_duration: float = 0.75
 const _wipe_out_idle_duration: float = 0.25
 
+var level_first_load: bool
+
 func _ready() -> void:
 	$CanvasLayer/Wipe.wipe_in_finished.connect(_wipe_in_finished)
 	$CanvasLayer/Wipe.wipe_out_finished.connect(_wipe_out_finished)
@@ -41,11 +43,13 @@ func _wipe_out_finished() -> void:
 
 func _on_main_menu_start_game_pressed() -> void:
 	current_level_index = 0
+	level_first_load = true
 	$CanvasLayer/Wipe.start_wipe_in(_wipe_in_duration, _wipe_in_idle_duration)
 	pass # Replace with function body.
 	
 func _handle_level_completed(_level: Level) -> void:
 	current_level_index += 1
+	level_first_load = true
 	load_out_level()
 	
 func load_out_level() -> void:
@@ -76,12 +80,13 @@ func load_level(index: int) -> void:
 	
 	current_level.process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_child(current_level)
-	current_level.setup()
+	current_level.setup(level_first_load)
 
 	show_hud()
 	$CanvasLayer/Wipe.start_wipe_out(_wipe_out_duration, _wipe_out_idle_duration)
 
 func _handle_level_restart() -> void:
+	level_first_load = false
 	load_out_level()
 
 func _on_win_back_button_pressed() -> void:

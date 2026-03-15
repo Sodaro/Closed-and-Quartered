@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8ttdgntb828h" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dsyb72g1bumen" path="res://levels/level_03.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://ddttsw8kd05b4" path="res://levels/level_01.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btao44f7ymy1g" path="res://levels/level_02.tscn" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://dggridjdx1hei" path="res://levels/level_04.tscn" id="5_5vw27"]
-[ext_resource type="PackedScene" uid="uid://c3buvk3plfk5" path="res://levels/level_05.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://gmntor6b33ir" path="res://UI/main_menu.tscn" id="7_272bh"]
 [ext_resource type="Script" uid="uid://clujaost7xhfm" path="res://wipe.gd" id="8_5vw27"]
 
@@ -17,7 +14,7 @@ font_size = 24
 
 [node name="Main" type="Node" unique_id=1911769299]
 script = ExtResource("1_0xm2m")
-levels = Array[PackedScene]([ExtResource("2_7mycd"), ExtResource("3_272bh"), ExtResource("1_ig7tw"), ExtResource("5_5vw27"), ExtResource("6_kek77")])
+levels = Array[PackedScene]([ExtResource("1_ig7tw"), ExtResource("3_272bh")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=658215102]
 

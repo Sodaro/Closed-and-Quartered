@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1x7v2ogi7cdr" path="res://weapons/projectile.gd" id="1_wiw7v"]
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="2_adweg"]
 [ext_resource type="Texture2D" uid="uid://cmmcgdt382hcx" path="res://assets/art/projectile.png" id="2_sv2v0"]
+[ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="4_6kaog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ccg4"]
 radius = 4.0
@@ -18,3 +19,7 @@ texture = ExtResource("2_sv2v0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=299523607]
 shape = SubResource("CircleShape2D_6ccg4")
+
+[node name="HitResponseComponent" type="Node2D" parent="." unique_id=1823479642]
+script = ExtResource("4_6kaog")
+metadata/_custom_type_script = "uid://cn2oay8wwk0pa"

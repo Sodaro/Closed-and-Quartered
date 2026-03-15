@@ -26,14 +26,14 @@ func _ready() -> void:
 	_hit_response_component = HitResponseComponent.new()
 	add_child(_hit_response_component)
 	_hit_response_component.hit_event.connect(_handle_hit)
-	weapon.pick_up_weapon(self)
+	weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
 	_range_squared = _shoot_range * _shoot_range
 
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float) -> void:
 	_health_component.damage_health(damage)
 
 func _handle_health_depleted() -> void:
-	$Handgun.drop_weapon()
+	weapon.drop_weapon()
 	queue_free()
 
 func _physics_process(_delta: float) -> void:
