@@ -36,4 +36,5 @@ position = Vector2(0, -32)
 
 [node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=521831310]
 script = ExtResource("5_la4f5")
+proximity_detection_range = 120.0
 metadata/_custom_type_script = "uid://gsqw10t640bb"

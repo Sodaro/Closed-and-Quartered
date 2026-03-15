@@ -5,7 +5,7 @@ class_name Sentry
 var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
 
 var _reaction_time: float = 0.2
-var _rotation_speed: float = 180
+var _rotation_speed: float = 360
 
 var health: float = 1.0
 var is_fragile: bool = false
@@ -43,9 +43,9 @@ func _process(delta: float) -> void:
 	
 	var player_pos: Vector2 = Helpers.PLAYER.global_position
 	var to_player: Vector2 = player_pos - global_position
-	var angle_to_player: float = rad_to_deg(transform.x.angle_to(to_player))
+	var angle_to_player: float = rad_to_deg(global_transform.x.angle_to(to_player))
 	rotate(sign(angle_to_player) * deg_to_rad(_rotation_speed) * delta)
-	if angle_to_player < rad_to_deg(15):
+	if angle_to_player < 15:
 		if !weapon.can_use_weapon():
 			return
 		weapon.use_weapon()
