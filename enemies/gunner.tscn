@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dx3nu3d6jywfr" path="res://assets/art/gunner.png" id="3_7yaar"]
 [ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="4_y0s5j"]
 [ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="5_3ntb8"]
+[ext_resource type="AudioStream" uid="uid://i4qhomhnpdua" path="res://assets/audio/enemy_death1.wav" id="6_y0s5j"]
+[ext_resource type="AudioStream" uid="uid://t86kc0o22r4w" path="res://assets/audio/enemy_death2.wav" id="7_3ntb8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fh4mi"]
 radius = 16.0
@@ -43,6 +45,7 @@ position = Vector2(0, -32)
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1516628577]
 script = ExtResource("4_y0s5j")
 health = 2.0
+hurt_sounds = Array[AudioStream]([ExtResource("6_y0s5j"), ExtResource("7_3ntb8")])
 metadata/_custom_type_script = "uid://tbehxd25cavq"
 
 [node name="HitResponseComponent" type="Node2D" parent="." unique_id=1601062818]

@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="GodotWildJam91"
+config/name="Closed & Quartered"
+config/description="Made for Godot Wild Jam #91
+Creator: David \"Sodaro\" Bång"
 run/main_scene="uid://dwjopiwlrs0cg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

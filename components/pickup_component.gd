@@ -41,7 +41,7 @@ func handle_picked_up() -> void:
 	is_picked_up = true
 	hide_pickup_text()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if text_instance == null:
 		return
 	text_instance.global_position = global_position

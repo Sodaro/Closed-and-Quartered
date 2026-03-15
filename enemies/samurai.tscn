@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="4_8yw6n"]
 [ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="5_snkc1"]
 [ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="6_fuv3h"]
+[ext_resource type="AudioStream" uid="uid://i4qhomhnpdua" path="res://assets/audio/enemy_death1.wav" id="7_7i850"]
 [ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="7_f3nbe"]
+[ext_resource type="AudioStream" uid="uid://t86kc0o22r4w" path="res://assets/audio/enemy_death2.wav" id="8_rig60"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8yw6n"]
 radius = 16.0
@@ -48,6 +50,7 @@ position = Vector2(0, -32)
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1375873650]
 script = ExtResource("6_fuv3h")
 health = 3.0
+hurt_sounds = Array[AudioStream]([ExtResource("7_7i850"), ExtResource("8_rig60")])
 metadata/_custom_type_script = "uid://tbehxd25cavq"
 
 [node name="HitResponseComponent" type="Node2D" parent="." unique_id=389037816]

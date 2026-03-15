@@ -26,6 +26,10 @@ collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
 metadata/_custom_type_script = "uid://dw1yli4dogk5j"
 
+[node name="Samurai2" parent="." unique_id=1141222605 instance=ExtResource("10_plso3")]
+position = Vector2(-1721.9999, 2575)
+rotation = -6.2553043
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1778713515]
 position = Vector2(-289, 742)
 rotation = 3.1415927
@@ -262,10 +266,6 @@ scale = Vector2(59.36002, 16.623798)
 position = Vector2(-1331, 671.9999)
 rotation = -2.3783333
 scale = Vector2(10.867891, 4.084776)
-
-[node name="Samurai2" parent="NavigationRegion2D" unique_id=1141222605 instance=ExtResource("10_plso3")]
-position = Vector2(1432.9998, -1833.0002)
-rotation = -3.1415927
 
 [node name="Player" parent="." unique_id=471040967 node_paths=PackedStringArray("starting_weapon") instance=ExtResource("2_07l6b")]
 position = Vector2(1036, 272)

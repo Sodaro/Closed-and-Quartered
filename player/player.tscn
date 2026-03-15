@@ -4,7 +4,9 @@
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cl682mleaktpa" path="res://assets/art/player.png" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://3tysxl37vkau" path="res://assets/audio/player_hurt.wav" id="5_boad6"]
 [ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="5_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://c5utmc6sw4kgf" path="res://assets/audio/player_hurt2.wav" id="6_rgyib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
 radius = 16.0
@@ -32,6 +34,7 @@ position = Vector2(0, -32)
 [node name="HealthComponent" type="Node2D" parent="." unique_id=2023874258]
 script = ExtResource("4_yw30f")
 health = 2.0
+hurt_sounds = Array[AudioStream]([ExtResource("5_boad6"), ExtResource("6_rgyib")])
 metadata/_custom_type_script = "uid://tbehxd25cavq"
 
 [node name="HitResponseComponent" type="Node2D" parent="." unique_id=309131491]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dt2b5tswwt2ps"]
 
 [ext_resource type="Script" uid="uid://cp030rg63etcw" path="res://level_actors/level_collectible.gd" id="1_qb2jq"]
+[ext_resource type="AudioStream" uid="uid://divl0lwoy00ph" path="res://assets/audio/collectible.wav" id="2_2rvwe"]
 [ext_resource type="Texture2D" uid="uid://jmbddr4g21b6" path="res://assets/art/collectible.png" id="3_7ohyv"]
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="3_ewj4j"]
 [ext_resource type="Script" uid="uid://12xpdtv0twus" path="res://components/pickup_component.gd" id="5_2rvwe"]
@@ -417,6 +418,7 @@ shader_parameter/gravity = Vector3(0, -1e-06, 0)
 
 [node name="LevelCollectible" type="Node2D" unique_id=1999132453]
 script = ExtResource("1_qb2jq")
+pickup_sound = ExtResource("2_2rvwe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=754270309]
 material = ExtResource("3_ewj4j")
