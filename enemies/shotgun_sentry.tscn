@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="4_g363u"]
 [ext_resource type="Texture2D" uid="uid://ble2mh3nj6vld" path="res://assets/art/sentry.png" id="4_qr7cg"]
 [ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="5_la4f5"]
+[ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="6_1p3k1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8uqv"]
 radius = 16.0
@@ -23,7 +24,6 @@ texture = ExtResource("4_qr7cg")
 
 [node name="Shotgun" parent="." unique_id=1923708777 instance=ExtResource("4_g363u")]
 position = Vector2(27, 0)
-ammo_count = 8
 
 [node name="FrontAttach" type="Node2D" parent="." unique_id=124340421]
 position = Vector2(28, 0)
@@ -38,3 +38,7 @@ position = Vector2(0, -32)
 script = ExtResource("5_la4f5")
 proximity_detection_range = 120.0
 metadata/_custom_type_script = "uid://gsqw10t640bb"
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=759279439]
+script = ExtResource("6_1p3k1")
+metadata/_custom_type_script = "uid://tbehxd25cavq"

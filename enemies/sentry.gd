@@ -10,13 +10,10 @@ var _rotation_speed: float = 360
 var health: float = 1.0
 var is_fragile: bool = false
 
-var _health_component: HealthComponent
 var _hit_response_component: HitResponseComponent
 
-func _ready() -> void:
-	_health_component = HealthComponent.new()
-	_health_component.health_depleted.connect(_handle_health_depleted)
-	add_child(_health_component)
+func _ready() -> void:	
+	$HealthComponent.health_depleted.connect(_handle_health_depleted)
 	
 	_hit_response_component = HitResponseComponent.new()
 	add_child(_hit_response_component)
@@ -31,7 +28,7 @@ func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float) -> vo
 		instance.speed = randf_range(1000, 2000)
 		instance.global_position = hit_position
 		Helpers.LEVEL_ROOT_NODE.add_child(instance)
-	_health_component.damage_health(damage)
+	$HealthComponent.damage_health(damage)
 
 func _handle_health_depleted() -> void:
 	weapon.drop_weapon()
@@ -45,7 +42,7 @@ func _process(delta: float) -> void:
 	var to_player: Vector2 = player_pos - global_position
 	var angle_to_player: float = rad_to_deg(global_transform.x.angle_to(to_player))
 	rotate(sign(angle_to_player) * deg_to_rad(_rotation_speed) * delta)
-	if angle_to_player < 15:
+	if abs(angle_to_player) < 15:
 		if !weapon.can_use_weapon():
 			return
 		weapon.use_weapon()

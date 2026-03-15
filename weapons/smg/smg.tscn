@@ -20,17 +20,18 @@ ammo_count = 64
 rand_bullet_rotation_min = -5.0
 rand_bullet_rotation_max = 5.0
 cooldown = 0.1
-base_damage = 0.33
+base_damage = 0.5
 use_sound = ExtResource("2_n8m5g")
 sound_pitch_min = 0.8
 sound_pitch_max = 1.2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202219767]
 material = ExtResource("1_bfk77")
-position = Vector2(11, 0)
+position = Vector2(2, 2)
 texture = ExtResource("3_7lbju")
 
 [node name="ProjectileSpawn" type="Node2D" parent="." unique_id=627326426]
+position = Vector2(16, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849996735]
 shape = SubResource("CircleShape2D_vcemr")

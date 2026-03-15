@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://lu20df8gxi6p" path="res://weapons/handgun/handgun.tscn" id="4_ecwps"]
 [ext_resource type="PackedScene" uid="uid://cc4332lap8a28" path="res://level_actors/level_exit.tscn" id="5_7d3dm"]
 [ext_resource type="PackedScene" uid="uid://dt2b5tswwt2ps" path="res://level_actors/level_collectible.tscn" id="6_g3bu7"]
+[ext_resource type="PackedScene" uid="uid://dyo4n2ioqhgye" path="res://enemies/handgun_sentry.tscn" id="7_a6hey"]
+[ext_resource type="PackedScene" uid="uid://3h7u6rsvk6ln" path="res://weapons/smg/smg.tscn" id="7_n8w53"]
+[ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="8_a6hey"]
+[ext_resource type="PackedScene" uid="uid://vt4jh3wdfjxa" path="res://enemies/shotgun_sentry.tscn" id="9_kdo1k"]
+[ext_resource type="PackedScene" uid="uid://dg8th1i7f0onr" path="res://enemies/samurai.tscn" id="10_plso3"]
+[ext_resource type="PackedScene" uid="uid://bg7cs2bty6c8l" path="res://enemies/gunner.tscn" id="11_7wg3r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_plso3"]
+vertices = PackedVector2Array(845.47656, 803.78125, 74.38281, 803.78125, 74.38281, 66.21875, 845.47656, 66.21875, -1171.2813, 803.7031, -1202.4531, 803.6406, -1171.2813, 771.0469, -1302.6016, 803.4531, -1458.7188, 803.1328, -1458.7188, 654.10156, -963.5078, 123.96094, -944.52344, 123.96094, -944.52344, 395.27344, -1151.2813, 395.27344, -1086.3672, 241.5, -1151.2813, 241.5, -1086.3672, 99.46094, -963.5078, 99.46094, 1500.1875, -762.77344, 1499.6094, -733.47656, 1499.6094, -763.4297, 1528.7031, -763.4297, 1479.6172, -855.5, 1479.6172, -783.4297, 526.47656, -783.4297, 846.1328, -851.28125, 526.47656, -851.28125, 846.1328, -855.5, 2597.5234, -836.4531, 2597.5234, -1077.4766, 2962.1719, -1442.1406, -715.1328, -967.28125, -666.27344, -967.28125, -666.27344, -845.97656, -775.1328, -845.97656, -775.1328, -1058.7188, -715.1328, -1058.7188, 826.1328, -1088.7188, 826.1328, -875.5, 526.47656, -875.5, 653.1328, -970.28125, 526.47656, -970.28125, 765.85156, -1088.7188, 653.1328, -1039.6563, 358.6328, -933.3281, 342.5625, -970.28125, 443.54688, -970.28125, 973.28125, -1107.4766, 991.3203, -1174.8203, 1090.4063, -1078.4766, 1514.4297, -962.46875, 1564.5703, -1149.5938, 1234.4297, -1226.5703, 1368.9766, -1226.5703, 1564.5703, -1174.1484, 633.1328, -1052.7734, 526.47656, -1006.3594, 526.47656, -1088.7188, 633.1328, -1088.7188, 2577.5234, -1085.7734, 2545.789, -1054.0469, 2392.039, -1207.7969, 2410.8125, -1226.5703, 2577.5234, -1226.5703, -666.27344, -1078.7188, -695.1328, -1078.7188, -695.1328, -1152.2813, -666.27344, -1152.2813, 506.47656, -1108.7188, 282.3203, -1108.7188, 248.57031, -1186.2813, 506.47656, -1186.2813, -699.6406, -1320.8906, -666.27344, -1320.8906, -666.27344, -1224.7188, -715.1328, -1224.7188, -715.1328, -1172.2813, -959.1328, -1172.2813, -959.1328, -1389.7188, -699.6406, -1389.7188, 633.1328, -1206.2813, 526.47656, -1206.2813, 526.47656, -1207.7188, 633.1328, -1207.7188, 230.53125, -1227.7188, 187.82031, -1325.8906, 670.6406, -1325.8906, 506.47656, -1246.5703, 506.47656, -1227.7188, 730.1328, -1246.5703, 730.1328, -1423.7188, 670.6406, -1423.7188, 750.1328, -1443.7188, 798.8906, -1610.9766, 807.3594, -1614.6563, 967.53906, -1246.5703, 946.2578, -1246.5703, 751.28906, -1436.2031, 743.5625, -1443.7188, 688.3906, -1497.3594, 751.28125, -1436.1875, 750.1328, -1437.3203, 1787.2031, -1246.5703, 1745.4297, -1246.5703, 1745.4297, -1267.8125, -666.27344, -1409.7188, -679.6406, -1409.7188, -679.6406, -1549.1094, -666.27344, -1549.1094, 650.6406, -1443.7188, 414.52344, -1443.7188, 650.6406, -1546.4688, 1564.5703, -1505.1797, 1564.5703, -1465.5703, 1527.9922, -1528.9219, -666.27344, -1570.8906, -685.6406, -1570.8906, -685.6406, -1763.3125, -666.27344, -1763.3125, -666.27344, -2678.6875, -666.27344, -1799.1094, -705.6406, -1799.1094, -1193.7969, -2678.6875, -1193.7969, -1783.3125, -705.6406, -1783.3125, 988.4531, -1946.7031, 983.10156, -1955.9609, 1017.6719, -1975.9219, 2264.4922, -2041.4688, 2229.2969, -1953.1172, 2152.5469, -2086.0625, 1139.2109, -2069.1797, 1247.7891, -2177.7578, 1285.4531, -2184.2813, 1338.5625, -2184.2813, 653.47656, -2698.6875, -646.27344, -2698.6875, -646.27344, -2746.0938, 653.47656, -2754.8438, 243.8125, -1589.3125, 291.1875, -1574.1094, 75.359375, -1574.1094, 90.1875, -1589.3125, 2610.5234, -2576.9219, 2610.5234, -2755.1484, 2962.039, -1992.7031, 2909.9297, -2058.3438, 1754.6406, -1526.7031, 1745.4297, -1508.5781, 1745.4297, -1593.2109, 1747.7578, -1601.8984, 2117.3984, -2106.9063, 2035.5234, -1901.3438, 2006.4766, -2011.6563, 2071.8906, -2185.7969, 2402.5313, -1246.5703, 2167.7266, -1246.5703, 2268.0469, -1304.4922, 1919.5391, -1793.4063, -1021.09375, -79.72656, -1021.09375, -272.27344, -963.5078, -139.96094, -963.5078, 78.72656, -1365.4766, 415.27344, -1411.7813, 490.4297, -1458.7188, 539.4922, -1458.7188, -294.02344, -1365.4766, 78.72656, -1171.2813, 415.27344, -1171.2813, 720.5, 2115.6406, -1571.7031, 2203.539, -1834.4063, 2232.6094, -1907.4063, 2336.5938, -1727.3203, 2276.8594, -1489.7109, 1742.1172, -1593.2109, 2032.7578, -1350.2734, 2092.6484, -1246.5703, 1815.0938, -1246.5703, 2009.1406, -1362.2891, 2016.9531, -1377.6484, 1915.8594, -1444.7109, 1993.9531, -1417.5078, 1276.4063, -1669.3828, 1520.5234, -1246.5703, 1371.6172, -1246.5703, 1254.5469, -1277.9297, 839.59375, -1681.5234, 875.7969, -1763.3125, 1029.6172, -1835.4219, 1416.5703, -2058.8125, 1416.5703, -1973.5313, 1404.2891, -1743.2109, 1550.7031, -1729.8125, 1477.2969, -1616.7188, 1597.4297, -1973.5313, -1086.3672, 78.72656, -1086.3672, 34.5, -1162.9063, -79.72656, -1183.6328, 34.5, 291.1875, -1675.6875, 243.8125, -1732.6875, 875.7969, -1805.7578, 984.15625, -1914.1172, 2942.2266, -1991.7969, 2888.2188, -2045.7969, 2973.9297, -1461.6719, 2968.2188, -1452.2031, 2788.2031, -1632.2266, 2760.2031, -1809.7734, 787.28906, -1627.7422, 664.03906, -1574.1094, 444.8125, -1574.1094, 444.8125, -1675.6875, 445.8125, -1712.3125, 75.359375, -1325.8906, 149.88281, -1325.8906, 149.88281, -1227.7188, 52.882813, -1227.7188, -104.359375, -1320.8906, 52.882813, -970.28125, 245.88281, -970.28125, 245.88281, -875.5, 54.382813, -875.5, -114.88281, -967.28125, -633.47656, 46.21875, -633.47656, 79.46094, -840.4922, 79.46094, -766.96875, -43.320313, -1183.6328, 78.72656, -585.03125, -43.320313, -585.03125, -294.02344, -95.24219, -294.02344, 54.382813, 46.21875, -95.24219, -845.97656, -194.88281, -845.97656, -194.88281, -967.28125, -114.88281, -1224.7188, -378.8828, -1224.7188, -378.8828, -1320.8906, -104.359375, -1569.1094, -110.359375, -1569.1094, -110.359375, -1763.3125, 90.1875, -1732.6875, 445.8125, -1763.3125, 1597.4297, -2184.2813, 1841.1328, -2184.2813, 1838.4609, -2078.5938, 1751.5234, -1860.3438, 1841.1328, -2185.7969, -1162.9063, -272.27344, -766.96875, -294.02344, -840.4922, -139.96094, 292.1875, -1763.3125, 292.1875, -1712.3125, 2055.211, -1452.8828, 2657.4063, -1912.5391, 2222.6406, -1383.1172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(13, 15, 14), PackedInt32Array(10, 14, 16, 17), PackedInt32Array(18, 19, 20), PackedInt32Array(21, 18, 20), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(24, 26, 25), PackedInt32Array(22, 25, 27), PackedInt32Array(28, 29, 30), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(31, 34, 35, 36), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(39, 41, 40), PackedInt32Array(42, 37, 40, 43), PackedInt32Array(44, 45, 46), PackedInt32Array(47, 48, 49), PackedInt32Array(50, 47, 49), PackedInt32Array(51, 50, 49, 52, 53, 54), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(59, 60, 61, 62, 63), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 74, 75), PackedInt32Array(75, 76, 77, 78), PackedInt32Array(75, 78, 79, 72), PackedInt32Array(80, 81, 82, 83), PackedInt32Array(84, 85, 86, 87), PackedInt32Array(87, 88, 84), PackedInt32Array(89, 87, 86), PackedInt32Array(90, 89, 86, 91), PackedInt32Array(92, 93, 94, 95, 96, 97), PackedInt32Array(98, 99, 93, 92), PackedInt32Array(96, 100, 97), PackedInt32Array(92, 97, 101), PackedInt32Array(102, 103, 104), PackedInt32Array(105, 106, 107, 108), PackedInt32Array(109, 110, 111), PackedInt32Array(112, 113, 114), PackedInt32Array(115, 116, 117, 118), PackedInt32Array(119, 120, 121, 122), PackedInt32Array(123, 122, 121, 124), PackedInt32Array(125, 126, 127), PackedInt32Array(128, 129, 130), PackedInt32Array(131, 132, 133, 134), PackedInt32Array(135, 136, 137, 138), PackedInt32Array(139, 140, 141, 142), PackedInt32Array(143, 144, 145, 146), PackedInt32Array(147, 148, 149, 150), PackedInt32Array(151, 152, 153, 154), PackedInt32Array(155, 156, 157), PackedInt32Array(158, 153, 152), PackedInt32Array(159, 160, 161, 162), PackedInt32Array(163, 164, 165, 166, 167), PackedInt32Array(168, 169, 164, 163), PackedInt32Array(170, 171, 172, 173, 174), PackedInt32Array(149, 175, 150), PackedInt32Array(176, 177, 178, 179), PackedInt32Array(180, 179, 178, 181, 182), PackedInt32Array(183, 184, 185, 186, 187, 188, 189), PackedInt32Array(183, 189, 190, 191, 192), PackedInt32Array(193, 194, 192, 191, 195), PackedInt32Array(159, 162, 196, 197), PackedInt32Array(198, 159, 197, 199), PackedInt32Array(200, 140, 139, 201), PackedInt32Array(202, 203, 189, 188), PackedInt32Array(204, 205, 146, 145), PackedInt32Array(204, 145, 206, 207, 208, 209), PackedInt32Array(210, 211, 212, 213, 214, 188, 187), PackedInt32Array(215, 216, 217, 218, 219), PackedInt32Array(220, 221, 222, 223, 224), PackedInt32Array(225, 226, 227, 228), PackedInt32Array(199, 229, 167, 166), PackedInt32Array(230, 231, 232, 233), PackedInt32Array(234, 235, 236, 224, 223), PackedInt32Array(237, 238, 239, 219, 218), PackedInt32Array(142, 141, 240, 241, 242, 243), PackedInt32Array(214, 244, 188), PackedInt32Array(195, 245, 246, 247, 248), PackedInt32Array(246, 249, 154, 153), PackedInt32Array(198, 199, 166, 250), PackedInt32Array(250, 166, 251, 160), PackedInt32Array(161, 160, 251, 252), PackedInt32Array(252, 251, 228, 227), PackedInt32Array(225, 228, 230, 233), PackedInt32Array(223, 233, 232, 234), PackedInt32Array(220, 224, 237, 218), PackedInt32Array(215, 219, 240, 141), PackedInt32Array(243, 242, 253, 201), PackedInt32Array(201, 253, 254, 200), PackedInt32Array(213, 200, 254, 214), PackedInt32Array(246, 153, 247), PackedInt32Array(193, 195, 248, 150), PackedInt32Array(150, 248, 158, 170, 255, 182, 181, 147), PackedInt32Array(173, 256, 209, 208, 155, 157, 174), PackedInt32Array(158, 152, 171, 170), PackedInt32Array(157, 257, 174)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2983.9998, -1459.0002, 2573.9998, -778.00024, 1510, -753.0001, 1479, 818.9999, -2031, 812.0001, -2001.0002, -2746.9998, 2610.9998, -2778.0002, 2971.9998, -1995.0002)])
 
 [node name="Level05" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_fl8gq")
@@ -15,40 +26,324 @@ collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
 metadata/_custom_type_script = "uid://dw1yli4dogk5j"
 
-[node name="Player" parent="." unique_id=471040967 instance=ExtResource("2_07l6b")]
-position = Vector2(476, 205)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1778713515]
+position = Vector2(-289, 742)
+rotation = 3.1415927
+navigation_polygon = SubResource("NavigationPolygon_plso3")
+navigation_layers = 3
+metadata/_edit_lock_ = true
 
-[node name="SolidWall" parent="." unique_id=844711368 instance=ExtResource("3_07l6b")]
-position = Vector2(485.99997, 148)
-rotation = 0.4382014
-scale = Vector2(15.040003, 1)
+[node name="SolidWall" parent="NavigationRegion2D" unique_id=844711368 instance=ExtResource("3_07l6b")]
+position = Vector2(-1742, 251.99994)
+rotation = -1.5707963
+scale = Vector2(36.13392, 17.080158)
 
-[node name="SolidWall2" parent="." unique_id=179112635 instance=ExtResource("3_07l6b")]
-position = Vector2(354.99997, 463)
-rotation = 0.4382014
-scale = Vector2(15.040003, 1)
+[node name="SolidWall4" parent="NavigationRegion2D" unique_id=2045827100 instance=ExtResource("3_07l6b")]
+position = Vector2(-1145, 246.99991)
+rotation = 1.5707964
+scale = Vector2(9.892316, -13.154674)
 
-[node name="SolidWall3" parent="." unique_id=2085583642 instance=ExtResource("3_07l6b")]
-position = Vector2(648, 499.00003)
-rotation = -0.0073180795
-scale = Vector2(15.040003, 1)
+[node name="SolidWall5" parent="NavigationRegion2D" unique_id=538500577 instance=ExtResource("3_07l6b")]
+position = Vector2(-902.00006, -8.000061)
+rotation = 1.5707964
+scale = Vector2(7.6225166, 3.219207)
 
-[node name="SolidWall4" parent="." unique_id=923074099 instance=ExtResource("3_07l6b")]
-position = Vector2(869.00006, 251.00002)
-rotation = -0.0073180795
-scale = Vector2(15.040003, 1)
+[node name="SolidWall9" parent="NavigationRegion2D" unique_id=93658035 instance=ExtResource("3_07l6b")]
+position = Vector2(-1092, -176.00006)
+scale = Vector2(3.8072815, 5.392326)
 
-[node name="SolidWall5" parent="." unique_id=1613637368 instance=ExtResource("3_07l6b")]
-position = Vector2(1094, 494.99997)
-rotation = -0.0073180795
-scale = Vector2(15.040003, 1)
+[node name="SolidWall10" parent="NavigationRegion2D" unique_id=186804260 instance=ExtResource("3_07l6b")]
+position = Vector2(-676, -190.00012)
+scale = Vector2(5.0605226, 8.542274)
 
-[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("4_ecwps")]
-position = Vector2(533, 274)
+[node name="SolidWall14" parent="NavigationRegion2D" unique_id=213703998 instance=ExtResource("3_07l6b")]
+position = Vector2(-415, -1096.0001)
+scale = Vector2(18.13258, 7.4199114)
 
-[node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("5_7d3dm")]
-position = Vector2(952, 353)
-scale = Vector2(-6.608818, 32.150814)
+[node name="SolidWall18" parent="NavigationRegion2D" unique_id=1654504813 instance=ExtResource("3_07l6b")]
+position = Vector2(352.99988, -1099)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall15" parent="NavigationRegion2D" unique_id=1055382720 instance=ExtResource("3_07l6b")]
+position = Vector2(-495, -949.9999)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall19" parent="NavigationRegion2D" unique_id=563319636 instance=ExtResource("3_07l6b")]
+position = Vector2(545.9999, -980.0001)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall16" parent="NavigationRegion2D" unique_id=1991857095 instance=ExtResource("3_07l6b")]
+position = Vector2(-402, -1445)
+scale = Vector2(17.977646, 7.13177)
+
+[node name="SolidWall22" parent="NavigationRegion2D" unique_id=1784720861 instance=ExtResource("3_07l6b")]
+position = Vector2(-408.00018, -1675)
+scale = Vector2(17.977646, 7.13177)
+
+[node name="SolidWall23" parent="NavigationRegion2D" unique_id=1227604754 instance=ExtResource("3_07l6b")]
+position = Vector2(-169.00024, -2231)
+scale = Vector2(64.67464, 28.605402)
+
+[node name="SolidWall21" parent="NavigationRegion2D" unique_id=894439965 instance=ExtResource("3_07l6b")]
+position = Vector2(372.99988, -1450)
+scale = Vector2(17.977646, 7.13177)
+
+[node name="SolidWall24" parent="NavigationRegion2D" unique_id=1660189898 instance=ExtResource("3_07l6b")]
+position = Vector2(166.99986, -1661)
+scale = Vector2(4.175707, 3.855666)
+
+[node name="SolidWall25" parent="NavigationRegion2D" unique_id=596089003 instance=ExtResource("3_07l6b")]
+position = Vector2(368.99985, -1784)
+scale = Vector2(4.175707, 3.855666)
+
+[node name="SolidWall26" parent="NavigationRegion2D" unique_id=1321904002 instance=ExtResource("3_07l6b")]
+position = Vector2(367.99988, -1604)
+scale = Vector2(4.175707, 3.855666)
+
+[node name="SolidWall17" parent="NavigationRegion2D" unique_id=556238453 instance=ExtResource("3_07l6b")]
+position = Vector2(-679, -1281.0001)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall20" parent="NavigationRegion2D" unique_id=14661202 instance=ExtResource("3_07l6b")]
+position = Vector2(449.99988, -1315)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall27" parent="NavigationRegion2D" unique_id=667879491 instance=ExtResource("3_07l6b")]
+position = Vector2(1552, -1005.0001)
+scale = Vector2(64.71979, -14.473237)
+
+[node name="SolidWall31" parent="NavigationRegion2D" unique_id=1732967272 instance=ExtResource("3_07l6b")]
+position = Vector2(1600, -1590)
+rotation = 0.57569504
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall39" parent="NavigationRegion2D" unique_id=1483755127 instance=ExtResource("3_07l6b")]
+position = Vector2(1655, -1351.0001)
+rotation = 1.5707964
+scale = Vector2(-14.513254, 5.026891)
+
+[node name="SolidWall36" parent="NavigationRegion2D" unique_id=1568727763 instance=ExtResource("3_07l6b")]
+position = Vector2(1507, -2091)
+rotation = 1.5707964
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall37" parent="NavigationRegion2D" unique_id=998711201 instance=ExtResource("3_07l6b")]
+position = Vector2(1878.9999, -1936.0005)
+rotation = -1.1916744
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall40" parent="NavigationRegion2D" unique_id=372105692 instance=ExtResource("3_07l6b")]
+position = Vector2(1878.9999, -1936.0005)
+rotation = -1.1916744
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall51" parent="NavigationRegion2D" unique_id=1909020207 instance=ExtResource("3_07l6b")]
+position = Vector2(2162.9998, -1977)
+rotation = -1.1916744
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall50" parent="NavigationRegion2D" unique_id=1017495718 instance=ExtResource("3_07l6b")]
+position = Vector2(2453.9998, -2186.0002)
+rotation = -2.0943952
+scale = Vector2(-20.532705, -20.063812)
+
+[node name="SolidWall38" parent="NavigationRegion2D" unique_id=951604394 instance=ExtResource("3_07l6b")]
+position = Vector2(2131, -1361.0005)
+rotation = -2.0943952
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall43" parent="NavigationRegion2D" unique_id=1746912955 instance=ExtResource("3_07l6b")]
+position = Vector2(3204, -1378.0006)
+rotation = -2.0943952
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall44" parent="NavigationRegion2D" unique_id=1268628658 instance=ExtResource("3_07l6b")]
+position = Vector2(3261.0002, -2147.0002)
+rotation = -2.0943952
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall45" parent="NavigationRegion2D" unique_id=188731879 instance=ExtResource("3_07l6b")]
+position = Vector2(3505.9995, -1673.0002)
+rotation = -1.8325958
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall46" parent="NavigationRegion2D" unique_id=239418338 instance=ExtResource("3_07l6b")]
+position = Vector2(2142.9998, -1426.0001)
+rotation = 2.0412843
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall47" parent="NavigationRegion2D" unique_id=869323572 instance=ExtResource("3_07l6b")]
+position = Vector2(1782, -1381.0001)
+rotation = 2.0412843
+scale = Vector2(-6.7166595, 5.026891)
+
+[node name="SolidWall48" parent="NavigationRegion2D" unique_id=2019925992 instance=ExtResource("3_07l6b")]
+position = Vector2(1470.9999, -1480.0001)
+rotation = 1.0471976
+scale = Vector2(-15.706339, 3.9891458)
+
+[node name="SolidWall49" parent="NavigationRegion2D" unique_id=1109182255 instance=ExtResource("3_07l6b")]
+position = Vector2(1218.9999, -2030.0002)
+rotation = -0.5235988
+scale = Vector2(-15.706339, 3.9891458)
+
+[node name="SolidWall33" parent="NavigationRegion2D" unique_id=1122442166 instance=ExtResource("3_07l6b")]
+position = Vector2(582.9999, -1274)
+rotation = -0.41044593
+scale = Vector2(-21.978529, 14.553279)
+
+[node name="SolidWall28" parent="NavigationRegion2D" unique_id=1007268009 instance=ExtResource("3_07l6b")]
+position = Vector2(961.99976, -2074)
+rotation = -0.7853982
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall30" parent="NavigationRegion2D" unique_id=1257883879 instance=ExtResource("3_07l6b")]
+position = Vector2(964.9999, -1380)
+rotation = 0.77149576
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall32" parent="NavigationRegion2D" unique_id=1316321124 instance=ExtResource("3_07l6b")]
+position = Vector2(1272, -1140.0002)
+rotation = 0.2617994
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall41" parent="NavigationRegion2D" unique_id=1933314343 instance=ExtResource("3_07l6b")]
+position = Vector2(2667.0002, -1329.0006)
+rotation = -0.7853982
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall42" parent="NavigationRegion2D" unique_id=182848978 instance=ExtResource("3_07l6b")]
+position = Vector2(2639.0002, -2113.0005)
+rotation = 0.7853982
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall29" parent="NavigationRegion2D" unique_id=1606981923 instance=ExtResource("3_07l6b")]
+position = Vector2(1540.9998, -2313.0002)
+scale = Vector2(18.13258, 7.4199114)
+
+[node name="SolidWall34" parent="NavigationRegion2D" unique_id=1550237729 instance=ExtResource("3_07l6b")]
+position = Vector2(1024.9999, -2453)
+rotation = -0.17136991
+scale = Vector2(18.13258, 18.699905)
+
+[node name="SolidWall35" parent="NavigationRegion2D" unique_id=139453166 instance=ExtResource("3_07l6b")]
+position = Vector2(1631.9998, -2495.0005)
+scale = Vector2(60.532578, 18.699905)
+
+[node name="SolidWall8" parent="NavigationRegion2D" unique_id=1019774802 instance=ExtResource("3_07l6b")]
+position = Vector2(-1135, 137.99982)
+rotation = 1.5707964
+scale = Vector2(5.843937, 2.4144175)
+
+[node name="SolidWall7" parent="NavigationRegion2D" unique_id=1691393757 instance=ExtResource("3_07l6b")]
+position = Vector2(116, 434.99985)
+rotation = 1.5707965
+scale = Vector2(23.673977, -46.21715)
+
+[node name="SolidWall11" parent="NavigationRegion2D" unique_id=1747103278 instance=ExtResource("3_07l6b")]
+position = Vector2(776.99994, -16.000061)
+rotation = -3.1415925
+scale = Vector2(44.538494, 53.09377)
+
+[node name="SolidWall12" parent="NavigationRegion2D" unique_id=1479378294 instance=ExtResource("3_07l6b")]
+position = Vector2(-1336, -2732)
+scale = Vector2(42.48313, -118.50681)
+
+[node name="SolidWall2" parent="NavigationRegion2D" unique_id=296754118 instance=ExtResource("3_07l6b")]
+position = Vector2(-887.99994, 449.99988)
+rotation = -1.5707963
+scale = Vector2(22.533913, 17.080158)
+
+[node name="SolidWall6" parent="NavigationRegion2D" unique_id=546010784 instance=ExtResource("3_07l6b")]
+position = Vector2(-1055.0002, -570.0001)
+scale = Vector2(59.36002, 16.623798)
+
+[node name="SolidWall3" parent="NavigationRegion2D" unique_id=674627654 instance=ExtResource("3_07l6b")]
+position = Vector2(-1331, 671.9999)
+rotation = -2.3783333
+scale = Vector2(10.867891, 4.084776)
+
+[node name="Samurai2" parent="NavigationRegion2D" unique_id=1141222605 instance=ExtResource("10_plso3")]
+position = Vector2(1432.9998, -1833.0002)
+rotation = -3.1415927
+
+[node name="Player" parent="." unique_id=471040967 node_paths=PackedStringArray("starting_weapon") instance=ExtResource("2_07l6b")]
+position = Vector2(1036, 272)
+rotation = 1.5707964
+starting_weapon = NodePath("../SMG")
 
 [node name="LevelCollectible" parent="." unique_id=1999132453 instance=ExtResource("6_g3bu7")]
-position = Vector2(772, 361)
+position = Vector2(-278.00003, 2415.9998)
+rotation = -0.0063921344
+
+[node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("5_7d3dm")]
+position = Vector2(-3139, 2463)
+
+[node name="SMG" parent="." unique_id=1588066246 instance=ExtResource("7_n8w53")]
+position = Vector2(1035, 325)
+
+[node name="HandgunSentry" parent="." unique_id=463104401 instance=ExtResource("7_a6hey")]
+position = Vector2(760, 735)
+
+[node name="HandgunSentry2" parent="." unique_id=357847651 instance=ExtResource("7_a6hey")]
+position = Vector2(759, 788)
+
+[node name="HandgunSentry3" parent="." unique_id=799422437 instance=ExtResource("7_a6hey")]
+position = Vector2(759, 788)
+
+[node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("8_a6hey")]
+position = Vector2(848, 732)
+rotation = 1.5707964
+
+[node name="GlassWindow2" parent="." unique_id=866502537 instance=ExtResource("8_a6hey")]
+position = Vector2(848, 799)
+rotation = 1.5707964
+
+[node name="ShotgunSentry" parent="." unique_id=1645728128 instance=ExtResource("9_kdo1k")]
+position = Vector2(607, 989)
+
+[node name="ShotgunSentry2" parent="." unique_id=1174130085 instance=ExtResource("9_kdo1k")]
+position = Vector2(-117, 1649)
+rotation = -3.1415927
+
+[node name="ShotgunSentry3" parent="." unique_id=401122002 instance=ExtResource("9_kdo1k")]
+position = Vector2(-421, 2008)
+rotation = -6.2831855
+
+[node name="Samurai" parent="." unique_id=481384615 instance=ExtResource("10_plso3")]
+position = Vector2(30, 974)
+
+[node name="Gunner" parent="." unique_id=1161732207 node_paths=PackedStringArray("weapon") instance=ExtResource("11_7wg3r")]
+position = Vector2(-843, 2350)
+weapon = NodePath("../Handgun")
+
+[node name="Gunner3" parent="." unique_id=145575540 node_paths=PackedStringArray("weapon") instance=ExtResource("11_7wg3r")]
+position = Vector2(-2258, 2860)
+weapon = NodePath("../SMG4")
+
+[node name="Gunner4" parent="." unique_id=560710036 node_paths=PackedStringArray("weapon") instance=ExtResource("11_7wg3r")]
+position = Vector2(-2371, 2576)
+weapon = NodePath("../SMG3")
+
+[node name="Gunner5" parent="." unique_id=797931621 node_paths=PackedStringArray("weapon") instance=ExtResource("11_7wg3r")]
+position = Vector2(-2415, 2356)
+weapon = NodePath("../SMG2")
+
+[node name="Gunner2" parent="." unique_id=1885042161 node_paths=PackedStringArray("weapon") instance=ExtResource("11_7wg3r")]
+position = Vector2(-844, 2480)
+weapon = NodePath("../Handgun2")
+
+[node name="Handgun" parent="." unique_id=38970184 instance=ExtResource("4_ecwps")]
+position = Vector2(-808, 2347)
+
+[node name="Handgun2" parent="." unique_id=1283186752 instance=ExtResource("4_ecwps")]
+position = Vector2(-809, 2481)
+
+[node name="SMG2" parent="." unique_id=158786791 instance=ExtResource("7_n8w53")]
+position = Vector2(-2372, 2354)
+
+[node name="SMG3" parent="." unique_id=1302628181 instance=ExtResource("7_n8w53")]
+position = Vector2(-2334, 2571)
+
+[node name="SMG4" parent="." unique_id=877879157 instance=ExtResource("7_n8w53")]
+position = Vector2(-2227, 2858)
