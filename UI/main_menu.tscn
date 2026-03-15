@@ -2,13 +2,26 @@
 
 [ext_resource type="Script" uid="uid://fub4ej3r3ut1" path="res://UI/sound_options.gd" id="1_p8ccj"]
 [ext_resource type="Script" uid="uid://diqdr8c0qklgo" path="res://UI/main_menu.gd" id="1_tk8dj"]
+[ext_resource type="StyleBox" uid="uid://hasgltjar7gj" path="res://style_box_theme.tres" id="2_d8nwk"]
+[ext_resource type="StyleBox" uid="uid://f6pjdb7wh3u4" path="res://style_box_hover_theme.tres" id="3_4cwpn"]
+[ext_resource type="LabelSettings" uid="uid://dx24o8o11p7a8" path="res://credits_settings.tres" id="5_f40uw"]
+[ext_resource type="AudioStream" uid="uid://c4ftlywe802r5" path="res://assets/audio/shotgun_shoot.wav" id="6_8ctay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5yyqw"]
 font_size = 36
 shadow_size = 5
 shadow_color = Color(0.21230483, 0.21230483, 0.21230483, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_d8nwk"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk8dj"]
+font_size = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tk8dj"]
+
 [node name="MainMenu" type="Control" unique_id=863399875]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,73 +32,163 @@ scale = Vector2(1.0043141, 1.0088495)
 script = ExtResource("1_tk8dj")
 metadata/_edit_lock_ = true
 
-[node name="Title" type="Label" parent="." unique_id=1569009691]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=645237074]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1540665376]
+layout_mode = 1
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -131.5
 offset_right = 131.5
-offset_bottom = 50.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=901662278]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1569009691]
+layout_mode = 2
 text = "PROJECT NAME"
 label_settings = SubResource("LabelSettings_5yyqw")
+horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1811191816]
+[node name="CreatorLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1781670940]
+layout_mode = 2
+text = "By: David \"Sodaro\" Bång"
+label_settings = SubResource("LabelSettings_d8nwk")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="JamLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1835945885]
+layout_mode = 2
+text = "Created for Godot Wild Jam #91"
+label_settings = SubResource("LabelSettings_tk8dj")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=119100358]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tk8dj")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=1811191816]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer/VBoxContainer2" unique_id=1862746797]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_d8nwk")
+theme_override_styles/hover = ExtResource("3_4cwpn")
+text = "Start Game"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer/VBoxContainer2" unique_id=558307121]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_d8nwk")
+theme_override_styles/hover = ExtResource("3_4cwpn")
+text = "Credits"
+
+[node name="SoundOptions" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2" unique_id=559735120]
+layout_mode = 2
+script = ExtResource("1_p8ccj")
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=273984997]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=628064201]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=782464532]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=1679799434]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="MusicVolume" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=1062001454]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=724647363]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="SFXTester" type="AudioStreamPlayer2D" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=1544500460]
+position = Vector2(-260.5, -186.00002)
+stream = ExtResource("6_8ctay")
+bus = &"SFX"
+
+[node name="Credits" type="ColorRect" parent="." unique_id=496624506]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits" unique_id=496596360]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -28.0
-offset_right = 20.0
-offset_bottom = 28.0
+offset_left = -178.0
+offset_top = -46.0
+offset_right = 178.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartGameButton" type="Button" parent="VBoxContainer" unique_id=1862746797]
+[node name="Credits" type="Label" parent="Credits/VBoxContainer" unique_id=696203302]
 layout_mode = 2
-text = "Start Game"
+text = "\"Screen Saver\" Kevin MacLeod (incompetech.com)
 
-[node name="SoundOptions" type="VBoxContainer" parent="VBoxContainer" unique_id=559735120]
-layout_mode = 2
-script = ExtResource("1_p8ccj")
+\"Rocket\" Kevin MacLeod (incompetech.com)
 
-[node name="MasterLabel" type="Label" parent="VBoxContainer/SoundOptions" unique_id=273984997]
-layout_mode = 2
-text = "Master Volume"
+\"Flutey Funk\" Kevin MacLeod (incompetech.com)
+
+\"Exhilarate\" Kevin MacLeod (incompetech.com)
+
+\"Noise Attack\" Kevin MacLeod (incompetech.com)
+
+All songs licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+label_settings = ExtResource("5_f40uw")
 horizontal_alignment = 1
 
-[node name="MasterSlider" type="HSlider" parent="VBoxContainer/SoundOptions" unique_id=628064201]
+[node name="CreditsBackButton" type="Button" parent="Credits/VBoxContainer" unique_id=1217378020]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.05
+theme_override_styles/normal = ExtResource("2_d8nwk")
+theme_override_styles/hover = ExtResource("3_4cwpn")
+text = "Back"
 
-[node name="SFXLabel" type="Label" parent="VBoxContainer/SoundOptions" unique_id=782464532]
-layout_mode = 2
-text = "SFX Volume"
-horizontal_alignment = 1
-
-[node name="SFXSlider" type="HSlider" parent="VBoxContainer/SoundOptions" unique_id=1679799434]
-layout_mode = 2
-max_value = 1.0
-step = 0.05
-
-[node name="MusicVolume" type="Label" parent="VBoxContainer/SoundOptions" unique_id=1062001454]
-layout_mode = 2
-text = "Music Volume"
-horizontal_alignment = 1
-
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer/SoundOptions" unique_id=724647363]
-layout_mode = 2
-max_value = 1.0
-step = 0.05
-
-[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/SoundOptions/MasterSlider" to="VBoxContainer/SoundOptions" method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/SoundOptions/SFXSlider" to="VBoxContainer/SoundOptions" method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/SoundOptions/MusicSlider" to="VBoxContainer/SoundOptions" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/MasterSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/SFXSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/MusicSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Credits/VBoxContainer/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]

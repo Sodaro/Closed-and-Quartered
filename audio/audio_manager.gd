@@ -4,6 +4,10 @@ var _master_volume:float
 var _music_volume:float
 var _sfx_volume:float
 
+signal master_volume_changed(normalized_value: float)
+signal sfx_volume_changed(normalized_value: float)
+signal music_volume_changed(normalized_value: float)
+
 func _ready() -> void:
 	_master_volume = 0.5
 	_music_volume = 0.5
@@ -25,14 +29,17 @@ func get_sfx_volume() -> float:
 func set_master_volume(normalized_value:float) -> void:
 	_update_audio_bus(normalized_value, "Master")
 	_master_volume = normalized_value
+	master_volume_changed.emit(normalized_value)
 
 func set_music_volume(normalized_value:float) -> void:
 	_update_audio_bus(normalized_value, "Music")
 	_music_volume = normalized_value
+	music_volume_changed.emit(normalized_value)
 
 func set_sfx_volume(normalized_value:float) -> void:
 	_update_audio_bus(normalized_value, "SFX")
 	_sfx_volume = normalized_value
+	sfx_volume_changed.emit(normalized_value)
 
 func _convert_to_db(normalized_value:float) -> float:
 	var db:float

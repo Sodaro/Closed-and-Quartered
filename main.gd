@@ -1,6 +1,8 @@
 extends Node
 
 @export var levels: Array[PackedScene]
+@export var songs_per_level: Array[AudioStream]
+@export var menu_song: AudioStream
 
 var current_level_index: int = 0
 var current_level: Level
@@ -13,9 +15,31 @@ const _wipe_out_idle_duration: float = 0.25
 var level_first_load: bool
 
 func _ready() -> void:
+	get_window().min_size = Vector2(640, 360)
 	$CanvasLayer/Wipe.wipe_in_finished.connect(_wipe_in_finished)
 	$CanvasLayer/Wipe.wipe_out_finished.connect(_wipe_out_finished)
 	show_main_menu()
+	$MusicPlayer.play_song(menu_song)
+	$CanvasLayer/PauseMenu.continue_pressed.connect(_unpause_game)
+	
+	
+func _pause_game() -> void:
+	get_tree().paused = true
+	$CanvasLayer/PauseMenu.visible = true
+	
+func _unpause_game() -> void:
+	get_tree().paused = false
+	$CanvasLayer/PauseMenu.visible = false
+	
+func _process(_delta: float) -> void:
+	if current_level_index < 0 || current_level_index >= levels.size():
+		return
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		if $CanvasLayer/PauseMenu.visible:
+			_unpause_game()
+		else:
+			_pause_game()
 	
 func show_hud() -> void:
 	HUD.visible = true
@@ -27,7 +51,6 @@ func show_main_menu() -> void:
 	HUD.visible = false
 	$CanvasLayer/WinScreen.visible = false
 
-	
 func show_win_screen() -> void:
 	$CanvasLayer/WinScreen.visible = true
 	HUD.visible = false
@@ -39,7 +62,11 @@ func handle_game_completed():
 
 func _wipe_out_finished() -> void:
 	get_tree().paused = false
-
+	if current_level_index == levels.size() || current_level_index < 0:
+		$MusicPlayer.play_song(menu_song)
+	else:
+		$MusicPlayer.play_song(songs_per_level[current_level_index])
+	
 
 func _on_main_menu_start_game_pressed() -> void:
 	current_level_index = 0

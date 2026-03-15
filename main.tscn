@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://dwjopiwlrs0cg"]
 
 [ext_resource type="Script" uid="uid://c8ttdgntb828h" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dsyb72g1bumen" path="res://levels/level_03.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c3buvk3plfk5" path="res://levels/level_05.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ddttsw8kd05b4" path="res://levels/level_01.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://btao44f7ymy1g" path="res://levels/level_02.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://dggridjdx1hei" path="res://levels/level_04.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://gmntor6b33ir" path="res://UI/main_menu.tscn" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://bdpvacti27cga" path="res://assets/audio/music/Rocket.mp3" id="7_w48qg"]
 [ext_resource type="Script" uid="uid://clujaost7xhfm" path="res://wipe.gd" id="8_5vw27"]
+[ext_resource type="StyleBox" uid="uid://hasgltjar7gj" path="res://style_box_theme.tres" id="8_kek77"]
+[ext_resource type="AudioStream" uid="uid://d1cbvs6v5kduu" path="res://assets/audio/music/Flutey Funk.mp3" id="8_vivmo"]
+[ext_resource type="AudioStream" uid="uid://cm5pa4a66vsn5" path="res://assets/audio/music/Exhilarate.mp3" id="9_2cqfq"]
+[ext_resource type="StyleBox" uid="uid://f6pjdb7wh3u4" path="res://style_box_hover_theme.tres" id="9_4c57u"]
+[ext_resource type="AudioStream" uid="uid://v6pfpondlt8r" path="res://assets/audio/music/Noise Attack.mp3" id="10_vivmo"]
+[ext_resource type="AudioStream" uid="uid://dkwwdl8ar5xn" path="res://assets/audio/music/Screen Saver.mp3" id="11_2cqfq"]
+[ext_resource type="Script" uid="uid://ckyy4mv31kawe" path="res://audio/music_player.gd" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bon0dqsc6mfh8" path="res://UI/pause_menu.tscn" id="16_yaehf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font_size = 36
@@ -12,21 +25,37 @@ font_size = 36
 font_size = 24
 
 [node name="Main" type="Node" unique_id=1911769299]
+process_mode = 3
 script = ExtResource("1_0xm2m")
-levels = Array[PackedScene]([ExtResource("2_1bvp3")])
+levels = Array[PackedScene]([ExtResource("2_lquwl"), ExtResource("3_272bh"), ExtResource("1_ig7tw"), ExtResource("5_272bh"), ExtResource("2_1bvp3")])
+songs_per_level = Array[AudioStream]([ExtResource("7_w48qg"), ExtResource("7_w48qg"), ExtResource("8_vivmo"), ExtResource("9_2cqfq"), ExtResource("10_vivmo")])
+menu_song = ExtResource("11_2cqfq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=658215102]
 
 [node name="MainMenu" parent="CanvasLayer" unique_id=863399875 instance=ExtResource("7_272bh")]
 process_mode = 1
 
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1287104347 instance=ExtResource("16_yaehf")]
+visible = false
+
 [node name="WinScreen" type="Panel" parent="CanvasLayer" unique_id=702536706]
 process_mode = 1
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/WinScreen" unique_id=1803805045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinScreen" unique_id=2066914177]
 layout_mode = 1
@@ -56,6 +85,8 @@ horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="CanvasLayer/WinScreen/VBoxContainer" unique_id=1133388577]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_kek77")
+theme_override_styles/hover = ExtResource("9_4c57u")
 text = "Exit to Main Menu"
 
 [node name="Wipe" type="ColorRect" parent="CanvasLayer" unique_id=1805980927]
@@ -69,6 +100,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_5vw27")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=189519278]
+process_mode = 3
+bus = &"Music"
+script = ExtResource("11_efxa6")
 
 [connection signal="start_game_pressed" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinScreen/VBoxContainer/BackButton" to="." method="_on_win_back_button_pressed"]

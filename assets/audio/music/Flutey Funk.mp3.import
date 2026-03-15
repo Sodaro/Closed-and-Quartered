@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1cbvs6v5kduu"
+path="res://.godot/imported/Flutey Funk.mp3-69ee489918a5a53d620788479c1e9de2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Flutey Funk.mp3"
+dest_files=["res://.godot/imported/Flutey Funk.mp3-69ee489918a5a53d620788479c1e9de2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

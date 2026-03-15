@@ -21,8 +21,8 @@ agent_radius = 16.0
 
 [node name="Level03" type="Node2D" unique_id=468190357 node_paths=PackedStringArray("level_exit", "collectible", "player")]
 script = ExtResource("1_lear0")
-bg_color = Color(0, 1, 1, 1)
-fg_color = Color(1, 0, 1, 1)
+bg_color = Color(0.40544182, 0.52667254, 0.41587475, 1)
+fg_color = Color(0.6995734, 0.55787486, 0.7970527, 1)
 level_exit = NodePath("LevelExit")
 collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
