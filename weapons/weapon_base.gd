@@ -67,9 +67,18 @@ func _process(delta: float) -> void:
 		var collider: Object = result.get_collider()
 		if collider == previous_owner:
 			return
-		if collider.has_method("handle_hit"):
-			collider.handle_hit(result.get_position(), -result.get_normal(), throw_damage)
-			if collider.is_fragile:
-				return
+		var response = ComponentManager.get_component(collider, HitResponseComponent)
+		if response:
+			response.handle_hit(result.get_position(), -result.get_normal(), throw_damage)
+			match (response.surface_type):
+				HitResponseComponent.HitSurfaceType.Absorb:
+					pass
+				HitResponseComponent.HitSurfaceType.Reflective:
+					velocity = velocity.bounce(result.get_normal())
+					transform.x = transform.x.bounce(result.get_normal()).normalized()
+					transform.y	= transform.x.orthogonal()
+					return
+				HitResponseComponent.HitSurfaceType.Fragile:
+					return
 		velocity = Vector2.ZERO
 		is_thrown = false
