@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="10_0bj1y"]
 [ext_resource type="PackedScene" uid="uid://b0vrbbxlb2cvp" path="res://weapons/rock/rock.tscn" id="11_6181x"]
 [ext_resource type="PackedScene" uid="uid://dg8th1i7f0onr" path="res://enemies/samurai.tscn" id="12_j4ks3"]
+[ext_resource type="PackedScene" uid="uid://3h7u6rsvk6ln" path="res://weapons/smg/smg.tscn" id="13_5pqto"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4ks3"]
 vertices = PackedVector2Array(504.6797, 438.0078, 285.67188, 341.09375, 379.53125, 149.03906, 615.09375, 256.8125, 769.3594, 521.96094, 672.5625, 260, 1803.3984, 258.9922, 1392.4219, 513.78125, 1857.9375, 1058.1484, 1378.4063, 1062.8281, 1357.1328, -410.0625, 1855.8906, -411.9297, 1854.1016, -147.21094, 1486.9375, -152.21094, 1361.8672, 169.0625, 1481.0078, -52.859375, 1819.1016, 171.07813, 1854.0469, -55.867188)
@@ -139,3 +140,6 @@ position = Vector2(1248, 393)
 
 [node name="GlassWindow5" parent="." unique_id=1735151942 instance=ExtResource("9_3ew82")]
 position = Vector2(985, 379)
+
+[node name="SMG" parent="." unique_id=1588066246 instance=ExtResource("13_5pqto")]
+position = Vector2(451, 283)

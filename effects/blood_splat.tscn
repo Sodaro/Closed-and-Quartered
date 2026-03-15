@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cmxkepi8slud0"]
+
+[ext_resource type="Texture2D" uid="uid://csjoy8hcvk6ca" path="res://assets/art/blood_splat.png" id="1_6t0wi"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_cfeg3"]
+[ext_resource type="Script" uid="uid://boitsfwtrc7r7" path="res://effects/blood_splat.gd" id="2_g8w3f"]
+
+[node name="BloodSplat" type="Sprite2D" unique_id=1826995654]
+material = ExtResource("1_cfeg3")
+texture = ExtResource("1_6t0wi")
+script = ExtResource("2_g8w3f")

@@ -4,6 +4,8 @@ class_name RangedWeapon
 @export var projectile_class: PackedScene
 @export var projectile_spawn: Node
 @export var ammo_count: int = 8
+@export var rand_bullet_rotation_min: float = 0
+@export var rand_bullet_rotation_max: float = 0
 
 func can_use_weapon() -> bool:
 	if !super.can_use_weapon():

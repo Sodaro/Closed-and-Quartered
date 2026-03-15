@@ -21,6 +21,8 @@ enum WeaponRepeatType
 @export var throw_damage: float = 10.0
 @export var base_damage: float = 1.0
 @export var use_sound: AudioStream
+@export var sound_pitch_min: float = 1.0
+@export var sound_pitch_max: float = 1.0
 
 var weapon_owner: Node = null
 var previous_owner: Node

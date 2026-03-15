@@ -8,6 +8,8 @@ var sight_range_squared: float
 var proximity_range_squared: float
 var time_spotted_player: float
 var has_detected_player: bool
+var can_see_player: bool
+var can_hear_player: bool
 
 func _ready() -> void:
 	super._ready()
@@ -41,7 +43,9 @@ func _can_hear_player() -> bool:
 	return true
 	
 func _physics_process(_delta: float) -> void:
+	can_see_player = _can_see_player()
+	can_hear_player = _can_hear_player()
 	var had_detected_player: bool = has_detected_player
-	has_detected_player = _can_see_player() || _can_hear_player()
+	has_detected_player = can_see_player || can_hear_player
 	if has_detected_player && !had_detected_player:
 		time_spotted_player = Helpers.get_time_seconds()

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
+var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
+
 var speed: float = 500.0
 var look_dir: Vector2
 
@@ -20,6 +22,12 @@ func _ready() -> void:
 	$HealthComponent.health_depleted.connect(_handle_health_depleted)
 	
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
+	for i in range(randi_range(3, 6)):
+		var instance = blood_scene.instantiate()
+		instance.move_dir = direction
+		instance.speed = randf_range(1000, 2000)
+		instance.global_position = hit_position
+		Helpers.LEVEL_ROOT_NODE.add_child(instance)
 	$HealthComponent.damage_health(damage)
 	
 func _handle_health_depleted() -> void:

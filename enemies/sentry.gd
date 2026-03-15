@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Sentry
 @export var weapon: RangedWeapon
 
+var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
+
 var _reaction_time: float = 0.5
 var _rotation_speed: float = 120
 
@@ -27,6 +29,12 @@ func _ready() -> void:
 	weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
 
 func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float) -> void:
+	for i in range(randi_range(3, 6)):
+		var instance = blood_scene.instantiate()
+		instance.move_dir = direction
+		instance.speed = randf_range(1000, 2000)
+		instance.global_position = hit_position
+		Helpers.LEVEL_ROOT_NODE.add_child(instance)
 	_health_component.damage_health(damage)
 
 func _handle_health_depleted() -> void:

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bg7cs2bty6c8l"]
+
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_5acnp"]
+[ext_resource type="Script" uid="uid://behlwjly2e2ju" path="res://enemies/gunner.gd" id="1_7yaar"]
+[ext_resource type="Texture2D" uid="uid://bedhq3e7au5hp" path="res://assets/art/samurai.png" id="2_7yaar"]
+[ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="3_2u3n8"]
+[ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="4_y0s5j"]
+[ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="5_3ntb8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fh4mi"]
+radius = 16.0
+
+[node name="Gunner" type="CharacterBody2D" unique_id=1161732207]
+script = ExtResource("1_7yaar")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=495184787]
+path_desired_distance = 8.0
+avoidance_enabled = true
+radius = 16.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=400169785]
+material = ExtResource("1_5acnp")
+texture = ExtResource("2_7yaar")
+
+[node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=1650295530]
+script = ExtResource("3_2u3n8")
+sight_detection_range = 200.0
+metadata/_custom_type_script = "uid://gsqw10t640bb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924515759]
+shape = SubResource("CircleShape2D_fh4mi")
+
+[node name="FrontAttach" type="Node2D" parent="." unique_id=571436073]
+position = Vector2(28, 0)
+
+[node name="RightAttach" type="Node2D" parent="." unique_id=1988080110]
+position = Vector2(0, 32)
+
+[node name="LeftAttach" type="Node2D" parent="." unique_id=660017965]
+position = Vector2(0, -32)
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1516628577]
+script = ExtResource("4_y0s5j")
+health = 5.0
+metadata/_custom_type_script = "uid://tbehxd25cavq"
+
+[node name="HitResponseComponent" type="Node2D" parent="." unique_id=1601062818]
+script = ExtResource("5_3ntb8")
+metadata/_custom_type_script = "uid://cn2oay8wwk0pa"

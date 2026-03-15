@@ -3,17 +3,18 @@ extends CharacterBody2D
 var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
 
 @export var movement_speed: float = 300.0
-@export var weapon: MeleeWeapon
+@export var weapon: RangedWeapon
+@export var attack_range: float = 150
 var _reaction_time: float = 0.25
-var _melee_reaction_time: float = 0.25
-var _time_in_melee_range: float
+var _shoot_reaction_time: float = 0.25
+var _time_in_range: float
 
 var attack_range_sq: float
 
 var chasing_player: bool
 
 func _ready() -> void:
-	attack_range_sq = (weapon.hit_radius + 200) * (weapon.hit_radius + 200)
+	attack_range_sq = (weapon.hit_radius + 30) * (weapon.hit_radius + 30)
 	$NavigationAgent2D.max_speed = movement_speed
 	$NavigationAgent2D.velocity_computed.connect(Callable(_on_velocity_computed))
 	$Katana.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
@@ -48,14 +49,12 @@ func _process(delta: float) -> void:
 		
 	chasing_player = true
 	set_movement_target(Helpers.PLAYER.global_position)
-	if global_position.distance_squared_to(Helpers.PLAYER.global_position) < attack_range_sq:
-		_time_in_melee_range += delta
-		if _time_in_melee_range >= _melee_reaction_time && weapon.can_use_weapon():
+	if global_position.distance_squared_to(Helpers.PLAYER.global_position) < attack_range_sq && $PlayerDetectionComponent.can_see_player:
+		_time_in_range += delta
+		if _time_in_range >= _shoot_reaction_time && weapon.can_use_weapon():
 			weapon.use_weapon()
-			_time_in_melee_range = 0
 	else:
-		_time_in_melee_range = 0
-
+		_time_in_range = 0
 
 func _on_hit_response_component_hit_event(hit_position: Vector2, direction: Vector2, damage: float) -> void:
 	for i in range(randi_range(3, 6)):
