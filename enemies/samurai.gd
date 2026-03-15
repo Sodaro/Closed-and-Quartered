@@ -69,4 +69,5 @@ func _on_hit_response_component_hit_event(hit_position: Vector2, direction: Vect
 
 
 func _on_health_component_health_depleted() -> void:
+	weapon.drop_weapon()
 	queue_free()

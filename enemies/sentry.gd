@@ -4,15 +4,14 @@ class_name Sentry
 
 var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
 
-var _reaction_time: float = 0.5
-var _rotation_speed: float = 120
+var _reaction_time: float = 0.2
+var _rotation_speed: float = 180
 
 var health: float = 1.0
 var is_fragile: bool = false
 
 var _health_component: HealthComponent
 var _hit_response_component: HitResponseComponent
-var _detection_component: PlayerDetectionComponent
 
 func _ready() -> void:
 	_health_component = HealthComponent.new()
@@ -21,9 +20,6 @@ func _ready() -> void:
 	
 	_hit_response_component = HitResponseComponent.new()
 	add_child(_hit_response_component)
-	
-	_detection_component = PlayerDetectionComponent.new()
-	add_child(_detection_component)
 	
 	_hit_response_component.hit_event.connect(_handle_hit)
 	weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
@@ -42,7 +38,7 @@ func _handle_health_depleted() -> void:
 	queue_free()
 		
 func _process(delta: float) -> void:
-	if !_detection_component.has_detected_player || Helpers.get_time_since(_detection_component.time_spotted_player) < _reaction_time:
+	if !$PlayerDetectionComponent.has_detected_player || Helpers.get_time_since($PlayerDetectionComponent.time_spotted_player) < _reaction_time:
 		return
 	
 	var player_pos: Vector2 = Helpers.PLAYER.global_position

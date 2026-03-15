@@ -9,14 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://vt4jh3wdfjxa" path="res://enemies/shotgun_sentry.tscn" id="7_6hrdw"]
 [ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="8_2wlag"]
 [ext_resource type="PackedScene" uid="uid://be30p8enxosl1" path="res://level_actors/glass_window.tscn" id="9_3ew82"]
-[ext_resource type="PackedScene" uid="uid://cuvbkcxwqlk3b" path="res://weapons/katana/katana.tscn" id="10_0bj1y"]
-[ext_resource type="PackedScene" uid="uid://b0vrbbxlb2cvp" path="res://weapons/rock/rock.tscn" id="11_6181x"]
+[ext_resource type="PackedScene" uid="uid://bg7cs2bty6c8l" path="res://enemies/gunner.tscn" id="11_6181x"]
 [ext_resource type="PackedScene" uid="uid://dg8th1i7f0onr" path="res://enemies/samurai.tscn" id="12_j4ks3"]
-[ext_resource type="PackedScene" uid="uid://3h7u6rsvk6ln" path="res://weapons/smg/smg.tscn" id="13_5pqto"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4ks3"]
-vertices = PackedVector2Array(504.6797, 438.0078, 285.67188, 341.09375, 379.53125, 149.03906, 615.09375, 256.8125, 769.3594, 521.96094, 672.5625, 260, 1803.3984, 258.9922, 1392.4219, 513.78125, 1857.9375, 1058.1484, 1378.4063, 1062.8281, 1357.1328, -410.0625, 1855.8906, -411.9297, 1854.1016, -147.21094, 1486.9375, -152.21094, 1361.8672, 169.0625, 1481.0078, -52.859375, 1819.1016, 171.07813, 1854.0469, -55.867188)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 7, 6), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 10, 13, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(16, 17, 8), PackedInt32Array(16, 8, 6)])
+vertices = PackedVector2Array(379.53125, 149.03906, 615.09375, 256.8125, 709.3203, 397.10156, 709.9922, 503.1328, 504.6797, 438.0078, 285.67188, 341.09375, 672.5625, 260, 777.96094, 259.89844, 778.5703, 363.22656, 914.8828, 395.78125, 854.8203, 362.78906, 1857.9375, 1058.1484, 1378.4063, 1062.8281, 1392.4219, 513.78125, 1803.3984, 258.9922, 1357.1328, -410.0625, 1855.8906, -411.9297, 1854.1016, -147.21094, 1486.9375, -152.21094, 1366.4297, -201.25, 915.6797, 520.03125, 1101.1328, 386.67188, 1286.8828, 386.67188, 1100.8203, 259.60938, 1101.1406, 313.32813, 1101.1328, 313.32813, 1177.4063, 313.32813, 1177.0781, 259.53906, 1292.8594, 259.4375, 1286.8828, 313.32813, 1293.5781, 379.22656, 1369.8203, 378.78906, 1369.1172, 259.3672, 854.21875, 259.82813, 1358.8281, -201.1875, 1368.5938, 169.07813, 1481.0078, -52.859375, 1819.1016, 171.07813, 1854.0469, -55.867188)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(2, 1, 6), PackedInt32Array(2, 6, 7, 8), PackedInt32Array(9, 2, 8, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18, 19), PackedInt32Array(13, 20, 9, 21, 22), PackedInt32Array(23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(29, 28, 30, 22), PackedInt32Array(31, 32, 14, 13), PackedInt32Array(9, 10, 33, 23, 25, 21), PackedInt32Array(19, 34, 15), PackedInt32Array(35, 19, 18, 36), PackedInt32Array(37, 35, 36, 38), PackedInt32Array(37, 38, 11), PackedInt32Array(14, 37, 11), PackedInt32Array(31, 13, 22, 30)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(264, 349, 499, 453, 767, 538, 1376, 530, 1362, 1079, 1874, 1074, 1870, -72, 1498, -69, 1502, -136, 1870, -131, 1872, -428, 1341, -426, 1346, 185, 1800, 187, 1790, 243, 673, 244, 619, 241, 372, 128)])
 agent_radius = 16.0
 
@@ -29,16 +27,9 @@ collectible = NodePath("LevelCollectible")
 player = NodePath("Player")
 metadata/_custom_type_script = "uid://dw1yli4dogk5j"
 
-[node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("2_wq170")]
-position = Vector2(1595.9999, -780)
-rotation = -3.145751
-scale = Vector2(29.711685, -36.89172)
-
-[node name="Player" parent="." unique_id=471040967 instance=ExtResource("2_85vqe")]
-position = Vector2(476, 205)
-
-[node name="Handgun" parent="." unique_id=1942767316 instance=ExtResource("3_85vqe")]
-position = Vector2(533, 274)
+[node name="Player" parent="." unique_id=471040967 node_paths=PackedStringArray("starting_weapon") instance=ExtResource("2_85vqe")]
+position = Vector2(516, 354)
+starting_weapon = NodePath("../Handgun")
 
 [node name="SolidWall6" parent="." unique_id=1980793007 instance=ExtResource("4_p0vsl")]
 position = Vector2(981, -92)
@@ -87,6 +78,21 @@ position = Vector2(2112.0002, 230)
 rotation = 0.0027345181
 scale = Vector2(14.688687, 43.97663)
 
+[node name="SolidWall19" parent="." unique_id=1983901717 instance=ExtResource("4_p0vsl")]
+position = Vector2(1946, -1118)
+rotation = 0.0027345181
+scale = Vector2(14.688687, 43.97663)
+
+[node name="SolidWall20" parent="." unique_id=1044170312 instance=ExtResource("4_p0vsl")]
+position = Vector2(1265, -1115)
+rotation = 0.0027345181
+scale = Vector2(14.688687, 43.97663)
+
+[node name="SolidWall21" parent="." unique_id=1996572160 instance=ExtResource("4_p0vsl")]
+position = Vector2(1624, -1319)
+rotation = 0.0027345181
+scale = Vector2(14.688687, 43.97663)
+
 [node name="SolidWall13" parent="." unique_id=1731889201 instance=ExtResource("4_p0vsl")]
 position = Vector2(1543, 1422)
 scale = Vector2(22.41557, -21.440662)
@@ -105,41 +111,57 @@ rotation = 3.0904698
 [node name="Shotgun" parent="." unique_id=2123585715 instance=ExtResource("8_2wlag")]
 position = Vector2(1566, 304)
 
-[node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("9_3ew82")]
-position = Vector2(643.99994, 275)
-rotation = 1.5955698
-
-[node name="GlassWindow2" parent="." unique_id=2092011260 instance=ExtResource("9_3ew82")]
-position = Vector2(641.99994, 339)
-rotation = 1.5955698
-
-[node name="GlassWindow3" parent="." unique_id=1737420974 instance=ExtResource("9_3ew82")]
-position = Vector2(635.99994, 403.99997)
-rotation = 1.5955698
-
-[node name="GlassWindow4" parent="." unique_id=693746923 instance=ExtResource("9_3ew82")]
-position = Vector2(601.00006, 457.00003)
-rotation = 1.5955698
-
-[node name="Katana" parent="." unique_id=642440031 instance=ExtResource("10_0bj1y")]
-position = Vector2(391, 283)
-
-[node name="Rock" parent="." unique_id=405712810 instance=ExtResource("11_6181x")]
-position = Vector2(406, 231)
-
 [node name="Samurai" parent="." unique_id=1524805275 instance=ExtResource("12_j4ks3")]
 position = Vector2(1601, 710)
+
+[node name="GlassWindow3" parent="." unique_id=1737420974 instance=ExtResource("9_3ew82")]
+position = Vector2(816, 380)
+rotation = 1.5815033
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=492709650]
 navigation_polygon = SubResource("NavigationPolygon_j4ks3")
 navigation_layers = 3
 metadata/_edit_lock_ = true
 
+[node name="SolidWall18" parent="NavigationRegion2D" unique_id=1908885387 instance=ExtResource("4_p0vsl")]
+position = Vector2(813.99994, 690)
+rotation = -0.006483393
+scale = Vector2(5.423936, 17.348013)
+
+[node name="SolidWall22" parent="NavigationRegion2D" unique_id=1646308256 instance=ExtResource("4_p0vsl")]
+position = Vector2(1138, 96)
+rotation = -0.0058583003
+scale = Vector2(1.3828906, 17.125816)
+
+[node name="SolidWall24" parent="NavigationRegion2D" unique_id=2059474323 instance=ExtResource("4_p0vsl")]
+position = Vector2(1194, 349.99994)
+rotation = -1.5707964
+scale = Vector2(1.291971, 4.8046336)
+
+[node name="SolidWall23" parent="NavigationRegion2D" unique_id=1285160925 instance=ExtResource("4_p0vsl")]
+position = Vector2(1330, 89)
+rotation = -0.0058583003
+scale = Vector2(1.3828906, 17.125816)
+
+[node name="SolidWall17" parent="NavigationRegion2D" unique_id=1374546592 instance=ExtResource("4_p0vsl")]
+position = Vector2(814.99994, 72.999985)
+rotation = -0.0058583003
+scale = Vector2(1.3828906, 17.125816)
+
 [node name="Samurai2" parent="." unique_id=34651871 instance=ExtResource("12_j4ks3")]
-position = Vector2(1248, 393)
+position = Vector2(1037, 380)
 
-[node name="GlassWindow5" parent="." unique_id=1735151942 instance=ExtResource("9_3ew82")]
-position = Vector2(985, 379)
+[node name="Handgun" parent="." unique_id=38970184 instance=ExtResource("3_85vqe")]
+position = Vector2(565, 362)
 
-[node name="SMG" parent="." unique_id=1588066246 instance=ExtResource("13_5pqto")]
-position = Vector2(451, 283)
+[node name="LevelExit" parent="." unique_id=1000780445 instance=ExtResource("2_wq170")]
+position = Vector2(1604, -513)
+
+[node name="Gunner2" parent="." unique_id=1743998825 node_paths=PackedStringArray("weapon") instance=ExtResource("11_6181x")]
+position = Vector2(1203.9999, 288.00006)
+rotation = -3.321693
+weapon = NodePath("../Gunner2 Handgun")
+
+[node name="Gunner2 Handgun" parent="." unique_id=181792761 instance=ExtResource("3_85vqe")]
+position = Vector2(1232, 284)

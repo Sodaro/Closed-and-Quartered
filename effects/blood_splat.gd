@@ -5,6 +5,7 @@ var speed: float
 var _velocity: Vector2
 
 func _ready() -> void:
+	speed *= 0.5
 	_velocity = move_dir * speed
 
 func _process(delta: float) -> void:

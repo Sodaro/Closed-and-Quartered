@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="3_1p3k1"]
 [ext_resource type="PackedScene" uid="uid://caykhyce0tidl" path="res://weapons/shotgun/shotgun.tscn" id="4_g363u"]
 [ext_resource type="Texture2D" uid="uid://ble2mh3nj6vld" path="res://assets/art/sentry.png" id="4_qr7cg"]
+[ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="5_la4f5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8uqv"]
 radius = 16.0
@@ -32,3 +33,7 @@ position = Vector2(0, 32)
 
 [node name="LeftAttach" type="Node2D" parent="." unique_id=232076948]
 position = Vector2(0, -32)
+
+[node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=521831310]
+script = ExtResource("5_la4f5")
+metadata/_custom_type_script = "uid://gsqw10t640bb"

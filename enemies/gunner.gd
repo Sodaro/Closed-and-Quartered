@@ -4,9 +4,9 @@ var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
 
 @export var movement_speed: float = 300.0
 @export var weapon: RangedWeapon
-@export var attack_range: float = 150
+@export var attack_range: float = 400
 var _reaction_time: float = 0.25
-var _shoot_reaction_time: float = 0.25
+var _shoot_reaction_time: float = 0.1
 var _time_in_range: float
 
 var attack_range_sq: float
@@ -14,10 +14,10 @@ var attack_range_sq: float
 var chasing_player: bool
 
 func _ready() -> void:
-	attack_range_sq = (weapon.hit_radius + 30) * (weapon.hit_radius + 30)
+	attack_range_sq = attack_range * attack_range
 	$NavigationAgent2D.max_speed = movement_speed
 	$NavigationAgent2D.velocity_computed.connect(Callable(_on_velocity_computed))
-	$Katana.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
+	weapon.call_deferred("pick_up_weapon", self, $FrontAttach, $LeftAttach, $RightAttach)
 
 func set_movement_target(movement_target: Vector2):
 		$NavigationAgent2D.set_target_position(movement_target)
@@ -43,6 +43,8 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 
 func _process(delta: float) -> void:
+	if is_queued_for_deletion():
+		return
 	if !chasing_player:
 		if !$PlayerDetectionComponent.has_detected_player || Helpers.get_time_since($PlayerDetectionComponent.time_spotted_player) < _reaction_time:
 			return
@@ -68,4 +70,5 @@ func _on_hit_response_component_hit_event(hit_position: Vector2, direction: Vect
 
 
 func _on_health_component_health_depleted() -> void:
+	weapon.drop_weapon()
 	queue_free()

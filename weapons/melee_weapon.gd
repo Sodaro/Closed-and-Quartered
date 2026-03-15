@@ -1,7 +1,7 @@
 extends WeaponBase
 class_name MeleeWeapon
 
-@export var hit_radius: float = 64
+@export var hit_radius: float = 80
 @export var swing_effect_scene: PackedScene
 
 var swing_direction: Vector2
@@ -21,7 +21,7 @@ func pick_up_weapon(new_owner: Node, front: Node, left: Node, right: Node) -> vo
 
 
 func _process(delta: float) -> void:
-	if Helpers.get_time_since(last_time_used) < 0.2:
+	if Helpers.get_time_since(last_time_used) < 0.15:
 		_handle_swing()
 	super._process(delta)
 		
@@ -40,10 +40,11 @@ func _handle_swing() -> void:
 			continue
 		if response_position.distance_squared_to(hit_origin) > sq_hit_radius:
 			continue
+		
+		var dist: float = response_position.distance_to(hit_origin)
 		var to_response: Vector2 = (response_position - hit_origin).normalized()
-		if to_response.dot(forward) <= 0.0:
-			return
-		response.handle_hit(response_position, to_response, base_damage)
+		if dist < hit_radius * 0.25 || to_response.dot(forward) > 0.0:
+			response.handle_hit(response_position, to_response, base_damage)
 
 func use_weapon() -> void:
 	super.use_weapon()

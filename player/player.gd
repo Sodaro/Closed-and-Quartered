@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
+
+@export var starting_weapon: WeaponBase
 var blood_scene: PackedScene = load("res://effects/blood_splat.tscn")
 
 var speed: float = 500.0
@@ -17,6 +19,8 @@ var is_dead: bool = false
 signal player_died
 
 func _ready() -> void:
+	if starting_weapon != null:
+		call_deferred("equip_weapon", starting_weapon)
 	look_dir = Vector2.RIGHT
 	$HitResponseComponent.hit_event.connect(_handle_hit)
 	$HealthComponent.health_depleted.connect(_handle_health_depleted)
@@ -32,6 +36,12 @@ func _handle_hit(hit_position: Vector2, direction: Vector2, damage: float):
 	
 func _handle_health_depleted() -> void:
 	player_died.emit()
+	
+func equip_weapon(new_weapon: WeaponBase) -> void:
+	if weapon != null:
+		weapon.drop_weapon()
+	weapon = new_weapon
+	weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
 	
 func handle_pickups() -> void:
 	var closest_pickup: PickupComponent
@@ -61,10 +71,7 @@ func handle_pickups() -> void:
 	closest_pickup.handle_picked_up()
 	var new_weapon: WeaponBase = closest_pickup.get_parent() as WeaponBase
 	if new_weapon != null:
-		if weapon != null:
-			weapon.drop_weapon()
-		weapon = new_weapon
-		weapon.pick_up_weapon(self, $FrontAttach, $LeftAttach, $RightAttach)
+		equip_weapon(new_weapon)
 	
 	var collectible: LevelCollectible = closest_pickup.get_parent() as LevelCollectible
 	if collectible != null:

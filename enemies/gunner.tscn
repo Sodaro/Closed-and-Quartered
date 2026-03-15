@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="1_5acnp"]
 [ext_resource type="Script" uid="uid://behlwjly2e2ju" path="res://enemies/gunner.gd" id="1_7yaar"]
-[ext_resource type="Texture2D" uid="uid://bedhq3e7au5hp" path="res://assets/art/samurai.png" id="2_7yaar"]
 [ext_resource type="Script" uid="uid://gsqw10t640bb" path="res://components/player_detection_component.gd" id="3_2u3n8"]
+[ext_resource type="Texture2D" uid="uid://dx3nu3d6jywfr" path="res://assets/art/gunner.png" id="3_7yaar"]
 [ext_resource type="Script" uid="uid://tbehxd25cavq" path="res://components/health_component.gd" id="4_y0s5j"]
 [ext_resource type="Script" uid="uid://cn2oay8wwk0pa" path="res://components/hit_response_component.gd" id="5_3ntb8"]
 
@@ -11,6 +11,7 @@
 radius = 16.0
 
 [node name="Gunner" type="CharacterBody2D" unique_id=1161732207]
+collision_mask = 3
 script = ExtResource("1_7yaar")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=495184787]
@@ -20,11 +21,11 @@ radius = 16.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=400169785]
 material = ExtResource("1_5acnp")
-texture = ExtResource("2_7yaar")
+texture = ExtResource("3_7yaar")
 
 [node name="PlayerDetectionComponent" type="Node2D" parent="." unique_id=1650295530]
 script = ExtResource("3_2u3n8")
-sight_detection_range = 200.0
+proximity_detection_range = 200.0
 metadata/_custom_type_script = "uid://gsqw10t640bb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924515759]
@@ -41,9 +42,12 @@ position = Vector2(0, -32)
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1516628577]
 script = ExtResource("4_y0s5j")
-health = 5.0
+health = 2.0
 metadata/_custom_type_script = "uid://tbehxd25cavq"
 
 [node name="HitResponseComponent" type="Node2D" parent="." unique_id=1601062818]
 script = ExtResource("5_3ntb8")
 metadata/_custom_type_script = "uid://cn2oay8wwk0pa"
+
+[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
+[connection signal="hit_event" from="HitResponseComponent" to="." method="_on_hit_response_component_hit_event"]

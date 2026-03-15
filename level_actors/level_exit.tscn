@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://cc4332lap8a28"]
 
 [ext_resource type="Script" uid="uid://b0va1nmdothdl" path="res://level_actors/level_exit.gd" id="1_vksil"]
+[ext_resource type="Texture2D" uid="uid://n7b2cpmhvwuu" path="res://assets/art/exit.png" id="2_a57sa"]
+[ext_resource type="Material" uid="uid://d1skkkxw04257" path="res://flat_material.tres" id="2_lwm88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bl0c"]
+size = Vector2(200, 200)
 
 [node name="LevelExit" type="Area2D" unique_id=1000780445]
 script = ExtResource("1_vksil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2024655256]
 shape = SubResource("RectangleShape2D_6bl0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1645437860]
+material = ExtResource("2_lwm88")
+texture = ExtResource("2_a57sa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

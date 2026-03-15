@@ -58,7 +58,7 @@ func pick_up_weapon(new_owner: Node, front: Node, left: Node, right: Node) -> vo
 			current_attach = right
 		WeaponEquipSlot.LEFT:
 			current_attach = left
-	reparent(current_attach)
+	reparent(current_attach, false)
 	position = Vector2.ZERO
 	rotation = 0
 
