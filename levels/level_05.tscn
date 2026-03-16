@@ -288,9 +288,6 @@ position = Vector2(760, 735)
 [node name="HandgunSentry2" parent="." unique_id=357847651 instance=ExtResource("7_a6hey")]
 position = Vector2(759, 788)
 
-[node name="HandgunSentry3" parent="." unique_id=799422437 instance=ExtResource("7_a6hey")]
-position = Vector2(759, 788)
-
 [node name="GlassWindow" parent="." unique_id=503987870 instance=ExtResource("8_a6hey")]
 position = Vector2(848, 732)
 rotation = 1.5707964
