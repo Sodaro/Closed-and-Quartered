@@ -57,7 +57,8 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1569009691]
 layout_mode = 2
-text = "Closed & Quartered"
+size_flags_horizontal = 4
+text = "Closed and Quartered"
 label_settings = SubResource("LabelSettings_5yyqw")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true

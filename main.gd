@@ -4,7 +4,7 @@ extends Node
 @export var songs_per_level: Array[AudioStream]
 @export var menu_song: AudioStream
 
-var current_level_index: int = 0
+var current_level_index: int = -1
 var current_level: Level
 
 const _wipe_in_duration: float = 0.15
@@ -24,10 +24,12 @@ func _ready() -> void:
 	
 	
 func _pause_game() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 	$CanvasLayer/PauseMenu.visible = true
 	
 func _unpause_game() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	get_tree().paused = false
 	$CanvasLayer/PauseMenu.visible = false
 	
@@ -69,6 +71,7 @@ func _wipe_out_finished() -> void:
 	
 
 func _on_main_menu_start_game_pressed() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	current_level_index = 0
 	level_first_load = true
 	$CanvasLayer/Wipe.start_wipe_in(_wipe_in_duration, _wipe_in_idle_duration)

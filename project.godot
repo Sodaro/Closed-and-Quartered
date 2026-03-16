@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Closed & Quartered"
+config/name="Closed and Quartered"
 config/description="Made for Godot Wild Jam #91
 Creator: David \"Sodaro\" Bång"
 run/main_scene="uid://dwjopiwlrs0cg"
