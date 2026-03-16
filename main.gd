@@ -29,7 +29,7 @@ func _pause_game() -> void:
 	$CanvasLayer/PauseMenu.visible = true
 	
 func _unpause_game() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	get_tree().paused = false
 	$CanvasLayer/PauseMenu.visible = false
 	
@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 	if current_level_index < 0 || current_level_index >= levels.size():
 		return
 		
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("pause_menu"):
 		if $CanvasLayer/PauseMenu.visible:
 			_unpause_game()
 		else:
@@ -71,7 +71,7 @@ func _wipe_out_finished() -> void:
 	
 
 func _on_main_menu_start_game_pressed() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	current_level_index = 0
 	level_first_load = true
 	$CanvasLayer/Wipe.start_wipe_in(_wipe_in_duration, _wipe_in_idle_duration)
