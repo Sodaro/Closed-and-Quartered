@@ -15,3 +15,8 @@ func _on_credits_back_button_pressed() -> void:
 func _on_credits_button_pressed() -> void:
 	$Credits.visible = true
 	pass # Replace with function body.
+
+
+func _on_exit_game_button_pressed() -> void:
+	get_tree().quit()
+	pass # Replace with function body.

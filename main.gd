@@ -14,6 +14,13 @@ const _wipe_out_idle_duration: float = 0.25
 
 var level_first_load: bool
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_fullscreen"):
+		if get_window().mode == Window.MODE_WINDOWED:
+			get_window().mode = Window.MODE_FULLSCREEN
+		else:
+			get_window().mode = Window.MODE_WINDOWED
+			
 func _ready() -> void:
 	get_window().min_size = Vector2(640, 360)
 	$CanvasLayer/Wipe.wipe_in_finished.connect(_wipe_in_finished)

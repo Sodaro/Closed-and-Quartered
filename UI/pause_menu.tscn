@@ -20,6 +20,9 @@ font_size = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tk8dj"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_nben2"]
+font_size = 12
+
 [node name="PauseMenu" type="Control" unique_id=863399875]
 process_mode = 3
 layout_mode = 3
@@ -97,6 +100,12 @@ theme_override_styles/normal = ExtResource("2_xv4gp")
 theme_override_styles/hover = ExtResource("3_mxjhc")
 text = "Credits"
 
+[node name="ExitGameButton" type="Button" parent="VBoxContainer/VBoxContainer2" unique_id=1228144566]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_xv4gp")
+theme_override_styles/hover = ExtResource("3_mxjhc")
+text = "Exit Game"
+
 [node name="SoundOptions" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2" unique_id=559735120]
 layout_mode = 2
 script = ExtResource("4_k6dah")
@@ -104,6 +113,7 @@ script = ExtResource("4_k6dah")
 [node name="MasterLabel" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=273984997]
 layout_mode = 2
 text = "Master Volume"
+label_settings = SubResource("LabelSettings_nben2")
 horizontal_alignment = 1
 
 [node name="MasterSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=628064201]
@@ -115,6 +125,7 @@ step = 0.05
 [node name="SFXLabel" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=782464532]
 layout_mode = 2
 text = "SFX Volume"
+label_settings = SubResource("LabelSettings_nben2")
 horizontal_alignment = 1
 
 [node name="SFXSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=1679799434]
@@ -125,6 +136,7 @@ step = 0.05
 [node name="MusicVolume" type="Label" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=1062001454]
 layout_mode = 2
 text = "Music Volume"
+label_settings = SubResource("LabelSettings_nben2")
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2/SoundOptions" unique_id=724647363]
@@ -188,6 +200,7 @@ text = "Back"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/MasterSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/SFXSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SoundOptions/MusicSlider" to="VBoxContainer/VBoxContainer2/SoundOptions" method="_on_music_slider_value_changed"]
